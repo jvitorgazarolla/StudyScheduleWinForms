@@ -1,5 +1,5 @@
 Descrição do projeto:
-Projeto realizado para estudo de procedures e arquitetura em camadas
+Projeto realizado para estudo de procedures e arquitetura em camadas, ainda faltando verificações e regras no front-end
 Arquitetura em camadas
 Uso de SQL Server + Stored Procedures
 Padrão Service + Repository + DTO
