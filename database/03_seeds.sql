@@ -1,0 +1,1 @@
+insert into cadastro_usuario (nome, usuario, senha, ativo)values('Administrador', 'admin', 'admin', 1)
