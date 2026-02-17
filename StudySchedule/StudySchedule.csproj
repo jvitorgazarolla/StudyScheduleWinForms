@@ -1,0 +1,55 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="UI\Forms\Profissiional\NovaPasta\**" />
+    <Compile Remove="UI\Forms\Profissional\**" />
+    <EmbeddedResource Remove="UI\Forms\Profissiional\NovaPasta\**" />
+    <EmbeddedResource Remove="UI\Forms\Profissional\**" />
+    <None Remove="UI\Forms\Profissiional\NovaPasta\**" />
+    <None Remove="UI\Forms\Profissional\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="UI\Forms\Cliente\Cadastro.cs" />
+    <Compile Remove="UI\Forms\Cliente\Cadastro.Designer.cs" />
+    <Compile Remove="UI\Forms\FormDashboard.cs" />
+    <Compile Remove="UI\Forms\FormDashboard.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Remove="UI\Forms\Cliente\Cadastro.resx" />
+    <EmbeddedResource Remove="UI\Forms\FormDashboard.resx" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="6.1.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Application\Services\Especialidade\NovaPasta\" />
+  </ItemGroup>
+
+</Project>
