@@ -10,8 +10,9 @@ namespace StudySchedule.Application.Services.Profissional
     public class ProfissionalService
     {
         private readonly ProfissionalRepository _repo;
-        public ProfissionalService(ProfissionalRepository repo)
+        public ProfissionalService()
         {
+            var repo = new ProfissionalRepository();
             _repo = repo;
         }
 

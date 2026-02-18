@@ -20,18 +20,5 @@ namespace StudySchedule.Application.Services.ProfissionalEspecialidade
             return _repo.Buscar(id, profissionalId, especialidadeId);
         }
 
-        public (bool ok, string msg, int? id) Inserir(int profissionalId, int especialidadeId, DateTime data, TimeSpan horario)
-        {
-            try
-            {
-                
-                var id = _repo.Inserir(profissionalId, especialidadeId, data, horario);
-                return (true, "Jornada cadastrada com sucesso!", null);
-
-            }
-            catch (Exception ex) {
-                return (false, ex.Message, null);
-            }
-        }
     }
 }

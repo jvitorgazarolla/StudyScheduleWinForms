@@ -47,6 +47,7 @@
             btn_novo = new Button();
             txt_busca_profissional = new TextBox();
             lbl_titulo = new Label();
+            cb_filtro = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)dgv_profissional).BeginInit();
             gpb_lista.SuspendLayout();
             pnl_edicao.SuspendLayout();
@@ -255,10 +256,10 @@
             // txt_busca_profissional
             // 
             txt_busca_profissional.Font = new Font("Segoe UI", 11.25F);
-            txt_busca_profissional.Location = new Point(12, 96);
+            txt_busca_profissional.Location = new Point(90, 96);
             txt_busca_profissional.Name = "txt_busca_profissional";
             txt_busca_profissional.PlaceholderText = "Digite o nome do profissional para busca";
-            txt_busca_profissional.Size = new Size(833, 27);
+            txt_busca_profissional.Size = new Size(755, 27);
             txt_busca_profissional.TabIndex = 16;
             // 
             // lbl_titulo
@@ -272,11 +273,20 @@
             lbl_titulo.Text = "Gerenciamento de Jornada";
             lbl_titulo.UseMnemonic = false;
             // 
+            // cb_filtro
+            // 
+            cb_filtro.FormattingEnabled = true;
+            cb_filtro.Location = new Point(12, 100);
+            cb_filtro.Name = "cb_filtro";
+            cb_filtro.Size = new Size(72, 23);
+            cb_filtro.TabIndex = 20;
+            // 
             // FormJornada
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(936, 611);
+            Controls.Add(cb_filtro);
             Controls.Add(gpb_lista);
             Controls.Add(btn_buscar);
             Controls.Add(btn_novo);
@@ -314,5 +324,6 @@
         private Label lbl_titulo;
         private DateTimePicker dtp_horario;
         private DateTimePicker dtp_data;
+        private ComboBox cb_filtro;
     }
 }

@@ -26,9 +26,8 @@ namespace StudySchedule.UI.Forms.Profissiional
         {
             InitializeComponent();
             var repositoryEspecialidade = new EspecialidadeRepository();
-            var repositoryProfissional = new ProfissionalRepository();
-            _especialidadeService = new EspecialidadeService(repositoryEspecialidade);
-            _profissionalService = new ProfissionalService(repositoryProfissional);
+            _especialidadeService = new EspecialidadeService();
+            _profissionalService = new ProfissionalService();
             buscarEspecialidade();
 
         }

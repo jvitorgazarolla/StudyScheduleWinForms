@@ -10,8 +10,9 @@ namespace StudySchedule.Application.Services.Especialidade
     {
         private readonly EspecialidadeRepository _repo;
 
-        public EspecialidadeService(EspecialidadeRepository repo)
+        public EspecialidadeService()
         {
+            var repo = new EspecialidadeRepository();
             _repo = repo;
         }
 

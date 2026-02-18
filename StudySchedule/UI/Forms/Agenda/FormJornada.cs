@@ -1,5 +1,6 @@
 ﻿using StudySchedule.Application.DTOs.Profissional;
 using StudySchedule.Application.DTOs.ProfissionalEspecialidade;
+using StudySchedule.Application.Services.Agenda;
 using StudySchedule.Application.Services.Especialidade;
 using StudySchedule.Application.Services.Profissional;
 using StudySchedule.Application.Services.ProfissionalEspecialidade;
@@ -19,6 +20,7 @@ namespace StudySchedule.UI.Forms.Profissiional
     {
         private readonly ProfissionalService _profissionalService;
         private readonly ProfissionalEspecialidadeService _profissionalEspecialidadeService;
+        private readonly JornadaService _jornadaService;
 
 
 
@@ -32,10 +34,9 @@ namespace StudySchedule.UI.Forms.Profissiional
             dtp_data.CustomFormat = "dd.MM.yyyy";
             dtp_data.ShowUpDown = false;
 
-            var respositoryProfissional = new ProfissionalRepository();
             var repositoryProfissionalEspecialidade = new ProfissionalEspecialidadeRepository();
-
-            _profissionalService = new ProfissionalService(respositoryProfissional);
+            _jornadaService = new JornadaService();
+            _profissionalService = new ProfissionalService();
             _profissionalEspecialidadeService = new ProfissionalEspecialidadeService(repositoryProfissionalEspecialidade);
 
             buscarProfissional();
@@ -86,6 +87,8 @@ namespace StudySchedule.UI.Forms.Profissiional
 
         private void FormJornada_Load(object sender, EventArgs e)
         {
+     
+
 
         }
 
@@ -119,7 +122,7 @@ namespace StudySchedule.UI.Forms.Profissiional
                 return;
 
             int profissionalId = (int)cb_profissional.SelectedValue;
-            int especialidadeId = (int)cb_especialidade.SelectedValue;
+            int profissionalEspecialidadeId = (int)cb_especialidade.SelectedValue;
 
             DateTime data = dtp_data.Value.Date;
 
@@ -128,8 +131,8 @@ namespace StudySchedule.UI.Forms.Profissiional
                  dtp_horario.Value.Minute,
                  0
             );
+            var resultInsert = _jornadaService.Inserir(profissionalId, profissionalEspecialidadeId, data, horario);
 
-            var resultInsert = _profissionalEspecialidadeService.Inserir(profissionalId, especialidadeId, data, horario);
 
             if (!resultInsert.ok)
             {

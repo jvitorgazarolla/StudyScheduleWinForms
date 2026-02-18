@@ -19,10 +19,7 @@ namespace StudySchedule.UI.Forms.Especialidade
         public FormEspecialidade()
         {
             InitializeComponent();
-
-            var repo = new EspecialidadeRepository();
-            _service = new EspecialidadeService(repo);
-            //carregarEspecialidades();
+            _service = new EspecialidadeService();
         }
 
         private void btn_limpar_Click(object sender, EventArgs e)
