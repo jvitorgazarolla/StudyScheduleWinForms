@@ -146,7 +146,13 @@ namespace StudySchedule.UI.Forms.Profissiional
 
         private void btn_cancelar_Click(object sender, EventArgs e)
         {
-            pnl_edicao.Visible = false; 
+            pnl_edicao.Visible = false;
+        }
+
+        private void btn_buscar_Click(object sender, EventArgs e)
+        {
+            gpb_lista.Visible = true;
+           
         }
     }
 }

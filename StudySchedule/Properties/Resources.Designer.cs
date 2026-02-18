@@ -59,5 +59,165 @@ namespace StudySchedule.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap hairdresserscissorsandcomb_89167 {
+            get {
+                object obj = ResourceManager.GetObject("hairdresserscissorsandcomb_89167", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_agenda_34 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-agenda-34", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_agenda_50 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-agenda-50", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_agenda_50__1_ {
+            get {
+                object obj = ResourceManager.GetObject("icons8-agenda-50 (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_barbearia_34 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-barbearia-34", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_barbearia_341 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-barbearia-341", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_barbearia_48 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-barbearia-48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_barbearia_96 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-barbearia-96", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_cliente_34 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-cliente-34", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_profissional_34 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-profissional-34", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_profissional_50 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-profissional-50", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap professional_executive_entrepreneur_business_man_icon_262974 {
+            get {
+                object obj = ResourceManager.GetObject("professional_executive_entrepreneur_business_man_icon_262974", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap vcsconflicting_93497 {
+            get {
+                object obj = ResourceManager.GetObject("vcsconflicting_93497", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap weekly_calendar_outline_event_interface_symbol_icon_icons_com_73108 {
+            get {
+                object obj = ResourceManager.GetObject("weekly-calendar-outline-event-interface-symbol_icon-icons.com_73108", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap weekly_calendar_outline_event_interface_symbol_icon_icons_com_73108__1_ {
+            get {
+                object obj = ResourceManager.GetObject("weekly-calendar-outline-event-interface-symbol_icon-icons.com_73108 (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap wondicon_ui_free_user_111213 {
+            get {
+                object obj = ResourceManager.GetObject("wondicon-ui-free-user_111213", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

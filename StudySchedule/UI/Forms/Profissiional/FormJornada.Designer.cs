@@ -55,7 +55,7 @@
             // dgv_profissional
             // 
             dgv_profissional.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgv_profissional.BackgroundColor = Color.White;
+            dgv_profissional.BackgroundColor = SystemColors.Control;
             dgv_profissional.BorderStyle = BorderStyle.None;
             dgv_profissional.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgv_profissional.Location = new Point(6, 22);
@@ -63,14 +63,14 @@
             dgv_profissional.ReadOnly = true;
             dgv_profissional.RowHeadersVisible = false;
             dgv_profissional.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgv_profissional.Size = new Size(994, 293);
+            dgv_profissional.Size = new Size(908, 293);
             dgv_profissional.TabIndex = 3;
             // 
             // cb_especialidade
             // 
             cb_especialidade.Enabled = false;
             cb_especialidade.FormattingEnabled = true;
-            cb_especialidade.Location = new Point(198, 167);
+            cb_especialidade.Location = new Point(122, 129);
             cb_especialidade.Name = "cb_especialidade";
             cb_especialidade.Size = new Size(285, 23);
             cb_especialidade.TabIndex = 15;
@@ -78,7 +78,7 @@
             // lbl_especialidade
             // 
             lbl_especialidade.AutoSize = true;
-            lbl_especialidade.Location = new Point(198, 149);
+            lbl_especialidade.Location = new Point(122, 111);
             lbl_especialidade.Name = "lbl_especialidade";
             lbl_especialidade.Size = new Size(81, 15);
             lbl_especialidade.TabIndex = 14;
@@ -89,7 +89,7 @@
             btn_limpar.BackColor = Color.FromArgb(64, 64, 64);
             btn_limpar.FlatAppearance.BorderSize = 0;
             btn_limpar.ForeColor = SystemColors.ControlLightLight;
-            btn_limpar.Location = new Point(585, 219);
+            btn_limpar.Location = new Point(321, 184);
             btn_limpar.Name = "btn_limpar";
             btn_limpar.Size = new Size(78, 31);
             btn_limpar.TabIndex = 12;
@@ -101,7 +101,7 @@
             btn_cancelar.BackColor = Color.Red;
             btn_cancelar.FlatAppearance.BorderSize = 0;
             btn_cancelar.ForeColor = SystemColors.ControlLightLight;
-            btn_cancelar.Location = new Point(476, 219);
+            btn_cancelar.Location = new Point(212, 184);
             btn_cancelar.Name = "btn_cancelar";
             btn_cancelar.Size = new Size(103, 31);
             btn_cancelar.TabIndex = 11;
@@ -114,7 +114,7 @@
             btn_salvar.BackColor = Color.MediumSeaGreen;
             btn_salvar.FlatAppearance.BorderSize = 0;
             btn_salvar.ForeColor = SystemColors.ControlLightLight;
-            btn_salvar.Location = new Point(386, 219);
+            btn_salvar.Location = new Point(122, 184);
             btn_salvar.Name = "btn_salvar";
             btn_salvar.Size = new Size(84, 31);
             btn_salvar.TabIndex = 10;
@@ -126,12 +126,12 @@
             // 
             gpb_lista.Controls.Add(pnl_edicao);
             gpb_lista.Controls.Add(dgv_profissional);
-            gpb_lista.Location = new Point(29, 210);
+            gpb_lista.Location = new Point(12, 129);
             gpb_lista.Name = "gpb_lista";
-            gpb_lista.Size = new Size(1019, 321);
+            gpb_lista.Size = new Size(914, 321);
             gpb_lista.TabIndex = 18;
             gpb_lista.TabStop = false;
-            gpb_lista.Text = "Profissionais";
+            gpb_lista.Text = "Jornadas:";
             // 
             // pnl_edicao
             // 
@@ -149,21 +149,21 @@
             pnl_edicao.Dock = DockStyle.Bottom;
             pnl_edicao.Location = new Point(3, 18);
             pnl_edicao.Name = "pnl_edicao";
-            pnl_edicao.Size = new Size(1013, 300);
+            pnl_edicao.Size = new Size(908, 300);
             pnl_edicao.TabIndex = 4;
             pnl_edicao.Visible = false;
             pnl_edicao.Paint += pnl_edicao_Paint;
             // 
             // dtp_data
             // 
-            dtp_data.Location = new Point(511, 123);
+            dtp_data.Location = new Point(435, 85);
             dtp_data.Name = "dtp_data";
             dtp_data.Size = new Size(249, 23);
             dtp_data.TabIndex = 24;
             // 
             // dtp_horario
             // 
-            dtp_horario.Location = new Point(511, 167);
+            dtp_horario.Location = new Point(435, 129);
             dtp_horario.Name = "dtp_horario";
             dtp_horario.Size = new Size(249, 23);
             dtp_horario.TabIndex = 23;
@@ -172,7 +172,7 @@
             // lbl_horaio
             // 
             lbl_horaio.AutoSize = true;
-            lbl_horaio.Location = new Point(511, 149);
+            lbl_horaio.Location = new Point(435, 111);
             lbl_horaio.Name = "lbl_horaio";
             lbl_horaio.Size = new Size(47, 15);
             lbl_horaio.TabIndex = 21;
@@ -181,7 +181,7 @@
             // cb_profissional
             // 
             cb_profissional.FormattingEnabled = true;
-            cb_profissional.Location = new Point(198, 121);
+            cb_profissional.Location = new Point(122, 85);
             cb_profissional.Name = "cb_profissional";
             cb_profissional.Size = new Size(285, 23);
             cb_profissional.TabIndex = 18;
@@ -190,7 +190,7 @@
             // lbl_profissional
             // 
             lbl_profissional.AutoSize = true;
-            lbl_profissional.Location = new Point(198, 103);
+            lbl_profissional.Location = new Point(122, 67);
             lbl_profissional.Name = "lbl_profissional";
             lbl_profissional.Size = new Size(71, 15);
             lbl_profissional.TabIndex = 17;
@@ -199,7 +199,7 @@
             // lbl_data
             // 
             lbl_data.AutoSize = true;
-            lbl_data.Location = new Point(511, 105);
+            lbl_data.Location = new Point(435, 67);
             lbl_data.Name = "lbl_data";
             lbl_data.Size = new Size(34, 15);
             lbl_data.TabIndex = 2;
@@ -217,19 +217,20 @@
             btn_buscar.BackColor = Color.FromArgb(0, 0, 192);
             btn_buscar.FlatAppearance.BorderSize = 0;
             btn_buscar.ForeColor = SystemColors.ControlLightLight;
-            btn_buscar.Location = new Point(981, 170);
+            btn_buscar.Location = new Point(851, 89);
             btn_buscar.Name = "btn_buscar";
             btn_buscar.Size = new Size(75, 23);
             btn_buscar.TabIndex = 19;
             btn_buscar.Text = "Buscar";
             btn_buscar.UseVisualStyleBackColor = false;
+            btn_buscar.Click += btn_buscar_Click;
             // 
             // btn_novo
             // 
             btn_novo.BackColor = Color.MediumSeaGreen;
             btn_novo.FlatAppearance.BorderSize = 0;
             btn_novo.ForeColor = SystemColors.ControlLightLight;
-            btn_novo.Location = new Point(866, 141);
+            btn_novo.Location = new Point(736, 60);
             btn_novo.Name = "btn_novo";
             btn_novo.Size = new Size(190, 23);
             btn_novo.TabIndex = 17;
@@ -239,17 +240,17 @@
             // 
             // txt_busca_profissional
             // 
-            txt_busca_profissional.Location = new Point(29, 170);
+            txt_busca_profissional.Location = new Point(12, 89);
             txt_busca_profissional.Name = "txt_busca_profissional";
             txt_busca_profissional.PlaceholderText = "Digite o nome do profissional para busca";
-            txt_busca_profissional.Size = new Size(946, 23);
+            txt_busca_profissional.Size = new Size(833, 23);
             txt_busca_profissional.TabIndex = 16;
             // 
             // lbl_titulo
             // 
             lbl_titulo.AutoSize = true;
             lbl_titulo.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbl_titulo.Location = new Point(393, 63);
+            lbl_titulo.Location = new Point(12, 9);
             lbl_titulo.Name = "lbl_titulo";
             lbl_titulo.Size = new Size(252, 25);
             lbl_titulo.TabIndex = 15;
@@ -260,7 +261,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1084, 611);
+            ClientSize = new Size(936, 611);
             Controls.Add(gpb_lista);
             Controls.Add(btn_buscar);
             Controls.Add(btn_novo);

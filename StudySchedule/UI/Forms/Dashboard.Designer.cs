@@ -171,6 +171,7 @@
             Controls.Add(panelMenu);
             Controls.Add(panelDesktop);
             Name = "Dashboard";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Dashboard";
             Load += Dashboard_Load;
             panelMenu.ResumeLayout(false);

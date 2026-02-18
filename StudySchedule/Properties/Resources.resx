@@ -117,4 +117,53 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="icons8-agenda-50" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8-agenda-50.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8-agenda-34" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8-agenda-34.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8-profissional-34" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8-profissional-34.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8-barbearia-34" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8-barbearia-34.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="hairdresserscissorsandcomb_89167" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\hairdresserscissorsandcomb_89167.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="wondicon-ui-free-user_111213" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\wondicon-ui-free-user_111213.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8-agenda-50 (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8-agenda-50 (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8-barbearia-341" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8-barbearia-341.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="weekly-calendar-outline-event-interface-symbol_icon-icons.com_73108 (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\weekly-calendar-outline-event-interface-symbol_icon-icons.com_73108 (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="vcsconflicting_93497" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\vcsconflicting_93497.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8-profissional-50" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8-profissional-50.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="weekly-calendar-outline-event-interface-symbol_icon-icons.com_73108" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\weekly-calendar-outline-event-interface-symbol_icon-icons.com_73108.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8-barbearia-96" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8-barbearia-96.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="professional_executive_entrepreneur_business_man_icon_262974" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\professional_executive_entrepreneur_business_man_icon_262974.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8-cliente-34" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8-cliente-34.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8-barbearia-48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8-barbearia-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

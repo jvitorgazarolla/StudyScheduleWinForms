@@ -30,9 +30,13 @@ namespace StudySchedule
             }
             else
             {
-                Dashboard formDashboard = new Dashboard();
+                //Dashboard formDashboard = new Dashboard();
+                DashboardForm formDashboard = new DashboardForm();
+
                 formDashboard.Show();
-                //this.Hide();
+                this.Hide();
+
+                formDashboard.FormClosed += (s, args) => this.Close();
 
             }
         }
