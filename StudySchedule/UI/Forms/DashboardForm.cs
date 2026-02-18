@@ -75,8 +75,6 @@ namespace StudySchedule.UI.Forms
 
         private void btn_agenda_jornada_Click(object sender, EventArgs e)
         {
-
-
             abrirFormNoPainel(new FormJornada());
         }
 
@@ -89,7 +87,8 @@ namespace StudySchedule.UI.Forms
                 MessageBoxIcon.Warning
             );
 
-            if (confirm == DialogResult.Yes) { 
+            if (confirm == DialogResult.Yes)
+            {
                 System.Windows.Forms.Application.Exit();
 
             }
@@ -98,7 +97,7 @@ namespace StudySchedule.UI.Forms
                 return;
             }
 
-            
+
         }
 
         private void btn_gerenciar_profissional_Click(object sender, EventArgs e)
@@ -116,12 +115,6 @@ namespace StudySchedule.UI.Forms
             abrirFormNoPainel(new FormEspecialidade());
 
         }
-
-        private void pnl_agenda_sub_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void btn_cliente_Click(object sender, EventArgs e)
         {
             toggleSubMenu(pnl_cliente);
@@ -130,6 +123,16 @@ namespace StudySchedule.UI.Forms
         private void btn_gerenciar_cliente_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Em desenvolvimento!");
+        }
+
+        private void btn_close_MouseHover(object sender, EventArgs e)
+        {
+            //btn_close.BackColor = Color.Control;
+        }
+
+        private void btn_gerenciar_agenda_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Em desenvolvimento");
         }
     }
 }

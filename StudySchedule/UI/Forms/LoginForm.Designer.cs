@@ -194,6 +194,7 @@
             // 
             // pic_box
             // 
+            pic_box.Image = Properties.Resources.icons8_barbearia_48;
             pic_box.Location = new Point(16, 16);
             pic_box.Name = "pic_box";
             pic_box.Size = new Size(64, 64);

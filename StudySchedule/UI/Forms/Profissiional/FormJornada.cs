@@ -152,7 +152,14 @@ namespace StudySchedule.UI.Forms.Profissiional
         private void btn_buscar_Click(object sender, EventArgs e)
         {
             gpb_lista.Visible = true;
-           
+            var termo = txt_busca_profissional.Text;
+
+
+        }
+
+        private void lbl_profissional_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

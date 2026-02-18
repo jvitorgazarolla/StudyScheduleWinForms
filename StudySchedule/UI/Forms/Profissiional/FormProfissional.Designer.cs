@@ -54,10 +54,11 @@
             // 
             btn_buscar.BackColor = Color.FromArgb(0, 0, 192);
             btn_buscar.FlatAppearance.BorderSize = 0;
+            btn_buscar.Font = new Font("Segoe UI", 11.25F);
             btn_buscar.ForeColor = SystemColors.ControlLightLight;
-            btn_buscar.Location = new Point(848, 86);
+            btn_buscar.Location = new Point(848, 85);
             btn_buscar.Name = "btn_buscar";
-            btn_buscar.Size = new Size(75, 23);
+            btn_buscar.Size = new Size(75, 27);
             btn_buscar.TabIndex = 14;
             btn_buscar.Text = "Buscar";
             btn_buscar.UseVisualStyleBackColor = false;
@@ -67,10 +68,11 @@
             // 
             btn_novo.BackColor = Color.MediumSeaGreen;
             btn_novo.FlatAppearance.BorderSize = 0;
+            btn_novo.Font = new Font("Segoe UI", 11.25F);
             btn_novo.ForeColor = SystemColors.ControlLightLight;
-            btn_novo.Location = new Point(733, 57);
+            btn_novo.Location = new Point(733, 53);
             btn_novo.Name = "btn_novo";
-            btn_novo.Size = new Size(190, 23);
+            btn_novo.Size = new Size(190, 27);
             btn_novo.TabIndex = 12;
             btn_novo.Text = "Cadastrar Profissional";
             btn_novo.UseVisualStyleBackColor = false;
@@ -78,18 +80,20 @@
             // 
             // txt_busca_profissional
             // 
+            txt_busca_profissional.Font = new Font("Segoe UI", 11.25F);
             txt_busca_profissional.Location = new Point(22, 85);
             txt_busca_profissional.Name = "txt_busca_profissional";
             txt_busca_profissional.PlaceholderText = "Digite o nome do profissional para busca";
-            txt_busca_profissional.Size = new Size(820, 23);
+            txt_busca_profissional.Size = new Size(820, 27);
             txt_busca_profissional.TabIndex = 11;
             // 
             // btn_limpar
             // 
             btn_limpar.BackColor = Color.FromArgb(64, 64, 64);
             btn_limpar.FlatAppearance.BorderSize = 0;
+            btn_limpar.Font = new Font("Segoe UI", 11.25F);
             btn_limpar.ForeColor = SystemColors.ControlLightLight;
-            btn_limpar.Location = new Point(556, 117);
+            btn_limpar.Location = new Point(556, 124);
             btn_limpar.Name = "btn_limpar";
             btn_limpar.Size = new Size(78, 31);
             btn_limpar.TabIndex = 12;
@@ -101,8 +105,9 @@
             // 
             btn_cancelar.BackColor = Color.Red;
             btn_cancelar.FlatAppearance.BorderSize = 0;
+            btn_cancelar.Font = new Font("Segoe UI", 11.25F);
             btn_cancelar.ForeColor = SystemColors.ControlLightLight;
-            btn_cancelar.Location = new Point(475, 117);
+            btn_cancelar.Location = new Point(475, 124);
             btn_cancelar.Name = "btn_cancelar";
             btn_cancelar.Size = new Size(75, 31);
             btn_cancelar.TabIndex = 11;
@@ -114,8 +119,9 @@
             // 
             btn_salvar.BackColor = Color.MediumSeaGreen;
             btn_salvar.FlatAppearance.BorderSize = 0;
+            btn_salvar.Font = new Font("Segoe UI", 11.25F);
             btn_salvar.ForeColor = SystemColors.ControlLightLight;
-            btn_salvar.Location = new Point(385, 117);
+            btn_salvar.Location = new Point(385, 124);
             btn_salvar.Name = "btn_salvar";
             btn_salvar.Size = new Size(84, 31);
             btn_salvar.TabIndex = 10;
@@ -126,44 +132,48 @@
             // lbl_titulo
             // 
             lbl_titulo.AutoSize = true;
-            lbl_titulo.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbl_titulo.Font = new Font("Segoe UI", 18F, FontStyle.Bold);
             lbl_titulo.Location = new Point(12, 9);
             lbl_titulo.Name = "lbl_titulo";
-            lbl_titulo.Size = new Size(284, 25);
+            lbl_titulo.Size = new Size(365, 32);
             lbl_titulo.TabIndex = 10;
             lbl_titulo.Text = "Gerenciamento de Profissional";
             lbl_titulo.UseMnemonic = false;
             // 
             // txt_telefone
             // 
+            txt_telefone.Font = new Font("Segoe UI", 11.25F);
             txt_telefone.Location = new Point(385, 78);
             txt_telefone.Name = "txt_telefone";
-            txt_telefone.Size = new Size(249, 23);
+            txt_telefone.Size = new Size(249, 27);
             txt_telefone.TabIndex = 3;
             // 
             // lbl_telefone
             // 
             lbl_telefone.AutoSize = true;
+            lbl_telefone.Font = new Font("Segoe UI", 11.25F);
             lbl_telefone.Location = new Point(385, 60);
             lbl_telefone.Name = "lbl_telefone";
-            lbl_telefone.Size = new Size(55, 15);
+            lbl_telefone.Size = new Size(69, 20);
             lbl_telefone.TabIndex = 2;
             lbl_telefone.Text = "Telefone:";
             // 
             // lbl_nome
             // 
             lbl_nome.AutoSize = true;
+            lbl_nome.Font = new Font("Segoe UI", 11.25F);
             lbl_nome.Location = new Point(72, 60);
             lbl_nome.Name = "lbl_nome";
-            lbl_nome.Size = new Size(43, 15);
+            lbl_nome.Size = new Size(53, 20);
             lbl_nome.TabIndex = 1;
             lbl_nome.Text = "Nome:";
             // 
             // txt_nome
             // 
+            txt_nome.Font = new Font("Segoe UI", 11.25F);
             txt_nome.Location = new Point(72, 78);
             txt_nome.Name = "txt_nome";
-            txt_nome.Size = new Size(285, 23);
+            txt_nome.Size = new Size(285, 27);
             txt_nome.TabIndex = 0;
             // 
             // pnl_edicao
@@ -181,34 +191,37 @@
             pnl_edicao.Dock = DockStyle.Bottom;
             pnl_edicao.Location = new Point(3, 22);
             pnl_edicao.Name = "pnl_edicao";
-            pnl_edicao.Size = new Size(814, 289);
+            pnl_edicao.Size = new Size(895, 289);
             pnl_edicao.TabIndex = 4;
             pnl_edicao.Visible = false;
             // 
             // check_status
             // 
             check_status.AutoSize = true;
+            check_status.Font = new Font("Segoe UI", 11.25F);
             check_status.Location = new Point(649, 80);
             check_status.Name = "check_status";
-            check_status.Size = new Size(54, 19);
+            check_status.Size = new Size(63, 24);
             check_status.TabIndex = 16;
             check_status.Text = "Ativo";
             check_status.UseVisualStyleBackColor = true;
             // 
             // cb_especialidade
             // 
+            cb_especialidade.Font = new Font("Segoe UI", 11.25F);
             cb_especialidade.FormattingEnabled = true;
-            cb_especialidade.Location = new Point(72, 122);
+            cb_especialidade.Location = new Point(72, 127);
             cb_especialidade.Name = "cb_especialidade";
-            cb_especialidade.Size = new Size(285, 23);
+            cb_especialidade.Size = new Size(285, 28);
             cb_especialidade.TabIndex = 15;
             // 
             // lbl_especialidade
             // 
             lbl_especialidade.AutoSize = true;
-            lbl_especialidade.Location = new Point(72, 104);
+            lbl_especialidade.Font = new Font("Segoe UI", 11.25F);
+            lbl_especialidade.Location = new Point(72, 108);
             lbl_especialidade.Name = "lbl_especialidade";
-            lbl_especialidade.Size = new Size(81, 15);
+            lbl_especialidade.Size = new Size(104, 20);
             lbl_especialidade.TabIndex = 14;
             lbl_especialidade.Text = "Especialidade:";
             // 
@@ -218,7 +231,7 @@
             gpb_lista.Controls.Add(dgv_profissional);
             gpb_lista.Location = new Point(22, 133);
             gpb_lista.Name = "gpb_lista";
-            gpb_lista.Size = new Size(820, 314);
+            gpb_lista.Size = new Size(901, 314);
             gpb_lista.TabIndex = 13;
             gpb_lista.TabStop = false;
             gpb_lista.Text = "Profissionais:";

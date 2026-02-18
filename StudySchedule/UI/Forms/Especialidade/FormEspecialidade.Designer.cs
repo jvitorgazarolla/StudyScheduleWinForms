@@ -67,9 +67,10 @@
             // cb_status
             // 
             cb_status.AutoSize = true;
+            cb_status.Font = new Font("Segoe UI", 11.25F);
             cb_status.Location = new Point(662, 106);
             cb_status.Name = "cb_status";
-            cb_status.Size = new Size(57, 19);
+            cb_status.Size = new Size(66, 24);
             cb_status.TabIndex = 16;
             cb_status.Text = "Ativo:";
             cb_status.UseVisualStyleBackColor = true;
@@ -78,8 +79,9 @@
             // 
             btn_limpar.BackColor = Color.FromArgb(64, 64, 64);
             btn_limpar.FlatAppearance.BorderSize = 0;
+            btn_limpar.Font = new Font("Segoe UI", 11.25F);
             btn_limpar.ForeColor = SystemColors.ControlLightLight;
-            btn_limpar.Location = new Point(544, 133);
+            btn_limpar.Location = new Point(544, 147);
             btn_limpar.Name = "btn_limpar";
             btn_limpar.Size = new Size(175, 31);
             btn_limpar.TabIndex = 12;
@@ -91,8 +93,9 @@
             // 
             btn_cancelar.BackColor = Color.Red;
             btn_cancelar.FlatAppearance.BorderSize = 0;
+            btn_cancelar.Font = new Font("Segoe UI", 11.25F);
             btn_cancelar.ForeColor = SystemColors.ControlLightLight;
-            btn_cancelar.Location = new Point(362, 133);
+            btn_cancelar.Location = new Point(362, 147);
             btn_cancelar.Name = "btn_cancelar";
             btn_cancelar.Size = new Size(176, 31);
             btn_cancelar.TabIndex = 11;
@@ -104,8 +107,9 @@
             // 
             btn_salvar.BackColor = Color.MediumSeaGreen;
             btn_salvar.FlatAppearance.BorderSize = 0;
+            btn_salvar.Font = new Font("Segoe UI", 11.25F);
             btn_salvar.ForeColor = SystemColors.ControlLightLight;
-            btn_salvar.Location = new Point(157, 133);
+            btn_salvar.Location = new Point(157, 147);
             btn_salvar.Name = "btn_salvar";
             btn_salvar.Size = new Size(199, 31);
             btn_salvar.TabIndex = 10;
@@ -124,9 +128,10 @@
             // 
             // txt_descricao
             // 
+            txt_descricao.Font = new Font("Segoe UI", 11.25F);
             txt_descricao.Location = new Point(157, 104);
             txt_descricao.Name = "txt_descricao";
-            txt_descricao.Size = new Size(499, 23);
+            txt_descricao.Size = new Size(499, 27);
             txt_descricao.TabIndex = 0;
             // 
             // btn_buscar
@@ -134,10 +139,11 @@
             btn_buscar.BackColor = Color.FromArgb(0, 0, 192);
             btn_buscar.Enabled = false;
             btn_buscar.FlatAppearance.BorderSize = 0;
+            btn_buscar.Font = new Font("Segoe UI", 11.25F);
             btn_buscar.ForeColor = SystemColors.ControlLightLight;
             btn_buscar.Location = new Point(936, 89);
             btn_buscar.Name = "btn_buscar";
-            btn_buscar.Size = new Size(119, 23);
+            btn_buscar.Size = new Size(119, 27);
             btn_buscar.TabIndex = 19;
             btn_buscar.Text = "Buscar";
             btn_buscar.UseVisualStyleBackColor = false;
@@ -147,10 +153,11 @@
             // 
             btn_novo.BackColor = Color.MediumSeaGreen;
             btn_novo.FlatAppearance.BorderSize = 0;
+            btn_novo.Font = new Font("Segoe UI", 11.25F);
             btn_novo.ForeColor = SystemColors.ControlLightLight;
-            btn_novo.Location = new Point(904, 60);
+            btn_novo.Location = new Point(813, 53);
             btn_novo.Name = "btn_novo";
-            btn_novo.Size = new Size(151, 23);
+            btn_novo.Size = new Size(242, 30);
             btn_novo.TabIndex = 17;
             btn_novo.Text = "Cadastrar Especialdiade";
             btn_novo.UseVisualStyleBackColor = false;
@@ -158,20 +165,21 @@
             // 
             // txt_descricao_especialidade
             // 
+            txt_descricao_especialidade.Font = new Font("Segoe UI", 11.25F);
             txt_descricao_especialidade.Location = new Point(12, 89);
             txt_descricao_especialidade.Name = "txt_descricao_especialidade";
             txt_descricao_especialidade.PlaceholderText = "Digite o nome da especialidade para busca";
-            txt_descricao_especialidade.Size = new Size(918, 23);
+            txt_descricao_especialidade.Size = new Size(918, 27);
             txt_descricao_especialidade.TabIndex = 16;
             txt_descricao_especialidade.TextChanged += txt_descricao_especialidade_TextChanged;
             // 
             // lbl_titulo
             // 
             lbl_titulo.AutoSize = true;
-            lbl_titulo.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbl_titulo.Font = new Font("Segoe UI", 18F, FontStyle.Bold);
             lbl_titulo.Location = new Point(12, 9);
             lbl_titulo.Name = "lbl_titulo";
-            lbl_titulo.Size = new Size(306, 25);
+            lbl_titulo.Size = new Size(395, 32);
             lbl_titulo.TabIndex = 15;
             lbl_titulo.Text = "Gerenciamento de Especialidades";
             lbl_titulo.UseMnemonic = false;

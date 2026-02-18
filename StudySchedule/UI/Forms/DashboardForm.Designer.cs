@@ -39,6 +39,7 @@
             btn_gerencar_profissional = new Button();
             btn_profissional = new Button();
             pnl_agenda = new Panel();
+            btn_gerenciar_agenda = new Button();
             btn_agenda_jornada = new Button();
             btn_agenda = new Button();
             pnl_sidebar_titulo = new Panel();
@@ -193,6 +194,7 @@
             // 
             // pnl_agenda
             // 
+            pnl_agenda.Controls.Add(btn_gerenciar_agenda);
             pnl_agenda.Controls.Add(btn_agenda_jornada);
             pnl_agenda.Dock = DockStyle.Top;
             pnl_agenda.Location = new Point(0, 140);
@@ -200,13 +202,27 @@
             pnl_agenda.Size = new Size(218, 72);
             pnl_agenda.TabIndex = 1;
             // 
+            // btn_gerenciar_agenda
+            // 
+            btn_gerenciar_agenda.FlatAppearance.BorderSize = 0;
+            btn_gerenciar_agenda.FlatStyle = FlatStyle.Flat;
+            btn_gerenciar_agenda.Font = new Font("Verdana", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btn_gerenciar_agenda.ForeColor = SystemColors.ButtonFace;
+            btn_gerenciar_agenda.Location = new Point(3, 3);
+            btn_gerenciar_agenda.Name = "btn_gerenciar_agenda";
+            btn_gerenciar_agenda.Size = new Size(212, 32);
+            btn_gerenciar_agenda.TabIndex = 1;
+            btn_gerenciar_agenda.Text = "Gerenciar Agenda";
+            btn_gerenciar_agenda.UseVisualStyleBackColor = true;
+            btn_gerenciar_agenda.Click += btn_gerenciar_agenda_Click;
+            // 
             // btn_agenda_jornada
             // 
             btn_agenda_jornada.FlatAppearance.BorderSize = 0;
             btn_agenda_jornada.FlatStyle = FlatStyle.Flat;
             btn_agenda_jornada.Font = new Font("Verdana", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btn_agenda_jornada.ForeColor = SystemColors.ButtonFace;
-            btn_agenda_jornada.Location = new Point(3, 6);
+            btn_agenda_jornada.Location = new Point(3, 34);
             btn_agenda_jornada.Name = "btn_agenda_jornada";
             btn_agenda_jornada.Size = new Size(206, 32);
             btn_agenda_jornada.TabIndex = 0;
@@ -262,6 +278,7 @@
             // 
             // btn_close
             // 
+            btn_close.BackColor = SystemColors.Control;
             btn_close.FlatAppearance.BorderSize = 0;
             btn_close.FlatStyle = FlatStyle.Flat;
             btn_close.Image = Properties.Resources.vcsconflicting_93497;
@@ -269,13 +286,15 @@
             btn_close.Name = "btn_close";
             btn_close.Size = new Size(50, 32);
             btn_close.TabIndex = 2;
-            btn_close.UseVisualStyleBackColor = true;
+            btn_close.UseVisualStyleBackColor = false;
             btn_close.Click += btn_close_Click;
+            btn_close.MouseHover += btn_close_MouseHover;
             // 
             // DashboardForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.Control;
             ClientSize = new Size(1341, 611);
             Controls.Add(btn_close);
             Controls.Add(pnl_content);
@@ -314,5 +333,6 @@
         private Panel pnl_cliente;
         private Button btn_gerenciar_cliente;
         private Button btn_cliente;
+        private Button btn_gerenciar_agenda;
     }
 }
