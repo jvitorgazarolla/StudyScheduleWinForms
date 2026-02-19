@@ -37,19 +37,15 @@ namespace StudySchedule.UI.Forms.Especialidade
             if (_edicao)
             {
                 var r = _service.Editar(_idSelecionado, descricao, status);
-
                 if (!r.ok)
                 {
                     MessageBox.Show(r.msg);
                     return;
                 }
-
                 MessageBox.Show(r.msg);
-
             }
             else
             {
-
                 var result = _service.Inserir(descricao, status);
 
                 if (!result.ok)

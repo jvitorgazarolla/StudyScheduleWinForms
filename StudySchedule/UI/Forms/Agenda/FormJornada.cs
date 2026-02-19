@@ -1,4 +1,5 @@
-﻿using StudySchedule.Application.DTOs.Profissional;
+﻿using StudySchedule.Application.DTOs.Agenda.Jornada;
+using StudySchedule.Application.DTOs.Profissional;
 using StudySchedule.Application.DTOs.ProfissionalEspecialidade;
 using StudySchedule.Application.Services.Agenda;
 using StudySchedule.Application.Services.Especialidade;
@@ -11,6 +12,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Windows.Forms;
 
@@ -21,23 +23,30 @@ namespace StudySchedule.UI.Forms.Profissiional
         private readonly ProfissionalService _profissionalService;
         private readonly ProfissionalEspecialidadeService _profissionalEspecialidadeService;
         private readonly JornadaService _jornadaService;
+        private string _filtroBusca;
 
 
 
         public FormJornada()
         {
             InitializeComponent();
+
+            _jornadaService = new JornadaService();
+            _profissionalService = new ProfissionalService();
+            _profissionalEspecialidadeService = new ProfissionalEspecialidadeService();
+            _filtroBusca = "";
+
             dtp_horario.Format = DateTimePickerFormat.Custom;
             dtp_horario.CustomFormat = "HH:mm";
             dtp_horario.ShowUpDown = true;
+
             dtp_data.Format = DateTimePickerFormat.Custom;
             dtp_data.CustomFormat = "dd.MM.yyyy";
             dtp_data.ShowUpDown = false;
 
-            var repositoryProfissionalEspecialidade = new ProfissionalEspecialidadeRepository();
-            _jornadaService = new JornadaService();
-            _profissionalService = new ProfissionalService();
-            _profissionalEspecialidadeService = new ProfissionalEspecialidadeService(repositoryProfissionalEspecialidade);
+            dtp_busca_hora.CustomFormat = "HH:mm";
+            dtp_busca_data.CustomFormat = "dd.MM.yyyy";
+            dtp_busca_data.ShowUpDown = false;
 
             buscarProfissional();
         }
@@ -87,7 +96,17 @@ namespace StudySchedule.UI.Forms.Profissiional
 
         private void FormJornada_Load(object sender, EventArgs e)
         {
-     
+            var filtros = new List<FiltroBuscaJornadaDto>
+            {
+                 new FiltroBuscaJornadaDto { Id = 0, Nome = "Profissional"},
+                 new FiltroBuscaJornadaDto {Id = 1, Nome = "Data"},
+                 new FiltroBuscaJornadaDto {Id = 2, Nome = "Hora"},
+            };
+
+            cb_filtro.DisplayMember = "Nome";
+            cb_filtro.ValueMember = "Id";
+            cb_filtro.DataSource = filtros;
+
 
 
         }
@@ -155,14 +174,68 @@ namespace StudySchedule.UI.Forms.Profissiional
         private void btn_buscar_Click(object sender, EventArgs e)
         {
             gpb_lista.Visible = true;
-            var termo = txt_busca_profissional.Text;
+            var nomeProfissional = "";
+            var  data = "";
+            switch (_filtroBusca) {
+                case "Profissional":
+                    nomeProfissional = txt_busca_profissional.Text;
+                    break;
 
+            }
+            var lista = _jornadaService.Buscar(nomeProfissional, null, null);
+
+            dgv_jornada.DataSource = lista;
 
         }
 
         private void lbl_profissional_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void cb_filtro_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            string valor = cb_filtro.Text;
+
+
+            switch (valor)
+            {
+                case "Profissional":
+                    txt_busca_profissional.Visible = true;
+                    dtp_busca_hora.Visible = false;
+                    dtp_busca_data.Visible = false;
+                    _filtroBusca = valor;
+
+                    break;
+                case "Hora":
+                    dtp_busca_hora.Visible = true;
+                    txt_busca_profissional.Visible = false;
+                    dtp_busca_data.Visible = false;
+                    _filtroBusca = valor;
+                    break;
+                case "Data":
+                    dtp_busca_hora.Visible = false;
+                    txt_busca_profissional.Visible = false;
+                    dtp_busca_data.Visible = true;
+                    _filtroBusca = valor;
+                    break;
+            }
+
+        }
+
+        private void dtp_busca_hora_ValueChanged(object sender, EventArgs e)
+        {
+            dtp_busca_hora.Format = DateTimePickerFormat.Custom;
+            dtp_busca_hora.CustomFormat = "HH:mm";
+            dtp_busca_hora.ShowUpDown = true;
+        }
+
+        private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
+        {
+            dtp_busca_data.Format = DateTimePickerFormat.Custom;
+            dtp_busca_data.CustomFormat = "dd.MM.yyyy";
+            dtp_busca_data.ShowUpDown = false;
         }
     }
 }

@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            dgv_profissional = new DataGridView();
+            dgv_jornada = new DataGridView();
             cb_especialidade = new ComboBox();
             lbl_especialidade = new Label();
             btn_limpar = new Button();
@@ -48,24 +48,26 @@
             txt_busca_profissional = new TextBox();
             lbl_titulo = new Label();
             cb_filtro = new ComboBox();
-            ((System.ComponentModel.ISupportInitialize)dgv_profissional).BeginInit();
+            dtp_busca_hora = new DateTimePicker();
+            dtp_busca_data = new DateTimePicker();
+            ((System.ComponentModel.ISupportInitialize)dgv_jornada).BeginInit();
             gpb_lista.SuspendLayout();
             pnl_edicao.SuspendLayout();
             SuspendLayout();
             // 
-            // dgv_profissional
+            // dgv_jornada
             // 
-            dgv_profissional.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgv_profissional.BackgroundColor = SystemColors.Control;
-            dgv_profissional.BorderStyle = BorderStyle.None;
-            dgv_profissional.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgv_profissional.Location = new Point(6, 22);
-            dgv_profissional.Name = "dgv_profissional";
-            dgv_profissional.ReadOnly = true;
-            dgv_profissional.RowHeadersVisible = false;
-            dgv_profissional.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgv_profissional.Size = new Size(908, 293);
-            dgv_profissional.TabIndex = 3;
+            dgv_jornada.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgv_jornada.BackgroundColor = SystemColors.Control;
+            dgv_jornada.BorderStyle = BorderStyle.None;
+            dgv_jornada.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgv_jornada.Location = new Point(6, 22);
+            dgv_jornada.Name = "dgv_jornada";
+            dgv_jornada.ReadOnly = true;
+            dgv_jornada.RowHeadersVisible = false;
+            dgv_jornada.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgv_jornada.Size = new Size(908, 293);
+            dgv_jornada.TabIndex = 3;
             // 
             // cb_especialidade
             // 
@@ -130,8 +132,8 @@
             // 
             // gpb_lista
             // 
+            gpb_lista.Controls.Add(dgv_jornada);
             gpb_lista.Controls.Add(pnl_edicao);
-            gpb_lista.Controls.Add(dgv_profissional);
             gpb_lista.Location = new Point(12, 142);
             gpb_lista.Name = "gpb_lista";
             gpb_lista.Size = new Size(914, 321);
@@ -256,11 +258,12 @@
             // txt_busca_profissional
             // 
             txt_busca_profissional.Font = new Font("Segoe UI", 11.25F);
-            txt_busca_profissional.Location = new Point(90, 96);
+            txt_busca_profissional.Location = new Point(129, 96);
             txt_busca_profissional.Name = "txt_busca_profissional";
             txt_busca_profissional.PlaceholderText = "Digite o nome do profissional para busca";
-            txt_busca_profissional.Size = new Size(755, 27);
+            txt_busca_profissional.Size = new Size(716, 27);
             txt_busca_profissional.TabIndex = 16;
+            txt_busca_profissional.Visible = false;
             // 
             // lbl_titulo
             // 
@@ -276,16 +279,37 @@
             // cb_filtro
             // 
             cb_filtro.FormattingEnabled = true;
-            cb_filtro.Location = new Point(12, 100);
+            cb_filtro.Location = new Point(15, 100);
             cb_filtro.Name = "cb_filtro";
-            cb_filtro.Size = new Size(72, 23);
+            cb_filtro.Size = new Size(111, 23);
             cb_filtro.TabIndex = 20;
+            cb_filtro.SelectedIndexChanged += cb_filtro_SelectedIndexChanged;
+            // 
+            // dtp_busca_hora
+            // 
+            dtp_busca_hora.Location = new Point(132, 100);
+            dtp_busca_hora.Name = "dtp_busca_hora";
+            dtp_busca_hora.Size = new Size(85, 23);
+            dtp_busca_hora.TabIndex = 21;
+            dtp_busca_hora.Visible = false;
+            dtp_busca_hora.ValueChanged += dtp_busca_hora_ValueChanged;
+            // 
+            // dtp_busca_data
+            // 
+            dtp_busca_data.Location = new Point(132, 100);
+            dtp_busca_data.Name = "dtp_busca_data";
+            dtp_busca_data.Size = new Size(228, 23);
+            dtp_busca_data.TabIndex = 23;
+            dtp_busca_data.Visible = false;
+            dtp_busca_data.ValueChanged += dateTimePicker2_ValueChanged;
             // 
             // FormJornada
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(936, 611);
+            Controls.Add(dtp_busca_data);
+            Controls.Add(dtp_busca_hora);
             Controls.Add(cb_filtro);
             Controls.Add(gpb_lista);
             Controls.Add(btn_buscar);
@@ -295,7 +319,7 @@
             Name = "FormJornada";
             Text = "FormJornada";
             Load += FormJornada_Load;
-            ((System.ComponentModel.ISupportInitialize)dgv_profissional).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgv_jornada).EndInit();
             gpb_lista.ResumeLayout(false);
             pnl_edicao.ResumeLayout(false);
             pnl_edicao.PerformLayout();
@@ -305,7 +329,7 @@
 
         #endregion
 
-        private DataGridView dgv_profissional;
+        private DataGridView dgv_jornada;
         private ComboBox cb_especialidade;
         private Label lbl_especialidade;
         private Button btn_limpar;
@@ -325,5 +349,7 @@
         private DateTimePicker dtp_horario;
         private DateTimePicker dtp_data;
         private ComboBox cb_filtro;
+        private DateTimePicker dtp_busca_hora;
+        private DateTimePicker dtp_busca_data;
     }
 }

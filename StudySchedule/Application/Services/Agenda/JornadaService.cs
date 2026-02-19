@@ -1,4 +1,5 @@
-﻿using StudySchedule.Infrastructure.Repositories.Agenda;
+﻿using StudySchedule.Application.DTOs.Agenda.Jornada;
+using StudySchedule.Infrastructure.Repositories.Agenda;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -14,7 +15,10 @@ namespace StudySchedule.Application.Services.Agenda
             var repo = new JornadaRepository();
             _repo = repo;
         }
-
+        public List<JornadaDto>Buscar(string? nomeProfissional = null, TimeSpan? hora = null, DateTime? data = null)
+        {
+            return _repo.Buscar(nomeProfissional, hora, data);
+        }
         public (bool ok, string msg, int? id)Inserir(int  profissionalId, int profissionalEspecialidadeId, DateTime data, TimeSpan horario)
         {
 
