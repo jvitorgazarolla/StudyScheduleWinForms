@@ -9,12 +9,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="UI\Forms\Profissiional\NovaPasta\**" />
-    <Compile Remove="UI\Forms\Profissional\**" />
-    <EmbeddedResource Remove="UI\Forms\Profissiional\NovaPasta\**" />
-    <EmbeddedResource Remove="UI\Forms\Profissional\**" />
-    <None Remove="UI\Forms\Profissiional\NovaPasta\**" />
-    <None Remove="UI\Forms\Profissional\**" />
+    <Compile Remove="UI\Forms\Profissional\NovaPasta\**" />
+    <EmbeddedResource Remove="UI\Forms\Profissional\NovaPasta\**" />
+    <None Remove="UI\Forms\Profissional\NovaPasta\**" />
   </ItemGroup>
 
   <ItemGroup>
