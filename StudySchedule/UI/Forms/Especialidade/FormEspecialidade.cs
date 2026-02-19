@@ -114,8 +114,6 @@ namespace StudySchedule.UI.Forms.Especialidade
         }
         private void ConfigurarColunasAcao()
         {
-            dgv_especialidade.DataContext = "teste";
-
             try
             {
                 dgv_especialidade.SuspendLayout();
