@@ -21,14 +21,12 @@ namespace StudySchedule.UI.Forms.Especialidade
             InitializeComponent();
             _service = new EspecialidadeService();
         }
-
         private void btn_limpar_Click(object sender, EventArgs e)
         {
             txt_descricao.Text = null;
             cb_status.Checked = false;
 
         }
-
         private void btn_salvar_Click(object sender, EventArgs e)
         {
             var descricao = txt_descricao.Text;
@@ -54,11 +52,9 @@ namespace StudySchedule.UI.Forms.Especialidade
                 }
 
                 MessageBox.Show(result.msg);
-
             }
 
         }
-
         private void btn_novo_Click(object sender, EventArgs e)
         {
             ExibirPainelEdicao(true);
@@ -83,7 +79,6 @@ namespace StudySchedule.UI.Forms.Especialidade
         private void btn_buscar_Click(object sender, EventArgs e)
         {
             var termo = txt_descricao_especialidade.Text;
-
             dgv_especialidade.DataSource = null;
             var lista = _service.Buscar(termo);
 
@@ -91,8 +86,6 @@ namespace StudySchedule.UI.Forms.Especialidade
             {
                 dgv_especialidade.DataSource = lista;
             }
-
-
             dgv_especialidade.Refresh();
             AdicionarBotao();
 
@@ -121,6 +114,7 @@ namespace StudySchedule.UI.Forms.Especialidade
         }
         private void ConfigurarColunasAcao()
         {
+            dgv_especialidade.DataContext = "teste";
 
             try
             {
@@ -163,7 +157,7 @@ namespace StudySchedule.UI.Forms.Especialidade
                     DefaultCellStyle = { BackColor = Color.IndianRed, ForeColor = Color.White }
                 });
 
-                // Agora pega as colunas com segurança
+
                 var colEditar = dgv_especialidade.Columns["btnEditar"];
                 var colDesativar = dgv_especialidade.Columns["btnDesativar"];
                 var colExcluir = dgv_especialidade.Columns["btnExcluir"];
