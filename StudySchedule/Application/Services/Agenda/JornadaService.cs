@@ -15,22 +15,30 @@ namespace StudySchedule.Application.Services.Agenda
             var repo = new JornadaRepository();
             _repo = repo;
         }
-        public List<JornadaDto>Buscar(string? nomeProfissional = null, TimeSpan? hora = null, DateTime? data = null)
+        public List<JornadaDto>Buscar(string? nomeProfissional = null,  DateTime? data = null, TimeSpan? horaInicio = null, TimeSpan? horaFim = null)
         {
-            return _repo.Buscar(nomeProfissional, hora, data);
+            return _repo.Buscar(nomeProfissional, data, horaInicio, horaFim);
         }
-        public (bool ok, string msg, int? id)Inserir(int  profissionalId, int profissionalEspecialidadeId, DateTime data, TimeSpan horario)
+        public (bool ok, string msg, int? id)Inserir(int  profissionalId,  DateTime data, TimeSpan horaInicio, TimeSpan horaFim)
         {
 
             try
             {
-                var id = _repo.Inserir(profissionalId, profissionalEspecialidadeId, data, horario);
+                var id = _repo.Inserir(profissionalId, data, horaInicio, horaFim);
                 return (true, "Jornada cadastrada com sucesso", id);
 
             }
             catch (Exception ex) {
                 return (false, ex.Message, null);
             }
+        }
+
+        public (bool ok, string msg, int? id)Editar(int id, int? profissionalId = null, int? especialidadeId = null, DateTime? data = null, TimeSpan?  hora = null)
+        {
+            var result = _repo.Editar(id, profissionalId, especialidadeId, data, hora);
+
+
+            return (true, "Jornada Atualiazda com sucesso!", null);
         }
     }
 }

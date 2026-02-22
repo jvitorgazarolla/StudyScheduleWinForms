@@ -11,65 +11,48 @@ namespace StudySchedule.Infrastructure.Repositories.Agenda
 {
     public class JornadaRepository
     {
-        public int Inserir(int profissionalId, int profissionalEspecialidadeId, DateTime data, TimeSpan horario) 
+        public int Inserir(int profissionalId, DateTime data, TimeSpan horaInicio, TimeSpan horaFim) 
         {
-            try
-            {
-
-                using var conn = DbConnectionFactory.Create();
-                using var cmd = new SqlCommand("cadastro_jornada_inserir", conn);
-
-                conn.Open();
-
-                cmd.CommandType = CommandType.StoredProcedure;
-
-                cmd.Parameters.AddWithValue("@profissional_id", profissionalId);
-                cmd.Parameters.AddWithValue("@profissional_especialidade_id", profissionalEspecialidadeId);
-                cmd.Parameters.Add("@data", SqlDbType.Date).Value = data;
-                cmd.Parameters.Add("@horario", SqlDbType.Time).Value = horario;
-
-                var r = cmd.ExecuteScalar();
-
-                return Convert.ToInt32(r);
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
+            return Db.Inserir<int>(
+            "cadastro_jornada_inserir",
+            SqlParam.In("profissional_id", SqlDbType.Int, profissionalId),
+            SqlParam.In("data", SqlDbType.Date, data),
+            SqlParam.In("hora_inicio", SqlDbType.Time, horaInicio),
+            SqlParam.In("hora_fim",SqlDbType.Time, horaFim)
+            );
 
         }
 
-        public List<JornadaDto>Buscar(string? nomeProfissional = null, TimeSpan? hora = null, DateTime? data = null)
+        public List<JornadaDto>Buscar(string? nomeProfissional = null, DateTime? data = null, TimeSpan? horaInicio = null, TimeSpan? horaFim = null)
         {
-            var lista = new List<JornadaDto>();
-
-            using var conn = DbConnectionFactory.Create();
-            using var cmd = new SqlCommand("cadastro_jornada_buscar", conn);
-            cmd.Parameters.AddWithValue("@nome_profissional", nomeProfissional);
-            cmd.Parameters.Add("@data", SqlDbType.Date).Value = data;
-            cmd.Parameters.Add("@horario", SqlDbType.Time).Value = hora;
-
-
-            cmd.CommandType = CommandType.StoredProcedure;
-
-            conn.Open();
-
-            using var rd = cmd.ExecuteReader();
-
-            while (rd.Read())
-            {
-                lista.Add(new JornadaDto
+            MessageBox.Show(nomeProfissional + "Repository");
+            return Db.Buscar<JornadaDto>(
+                "cadastro_jornada_buscar",
+                reader => new JornadaDto
                 {
-                    NomeProfissional = rd.GetString(rd.GetOrdinal("nome")),
-                    Hora = rd.GetTimeSpan(rd.GetOrdinal("horario")),
-                    Data = rd.GetDateTime(rd.GetOrdinal("data"))
+                    Id = reader.GetInt32(reader.GetOrdinal("id")),
+                    ProfissionalId = reader.GetInt32(reader.GetOrdinal("profissional_id")),
+                    NomeProfissional = reader.GetString(reader.GetOrdinal("nome_profissional")),
+                    Data = reader.GetDateTime(reader.GetOrdinal("data")),
+                    HoraInicio = reader.GetTimeSpan(reader.GetOrdinal("hora_inicio")),
+                    HoraFim = reader.GetTimeSpan(reader.GetOrdinal("hora_fim"))
+                },
+                SqlParam.In("@nome_profissional", SqlDbType.NVarChar, nomeProfissional),
+                SqlParam.In("@data", SqlDbType.Date, data)
+              );
+        }
 
-
-                });
-
-            }
-
-            return lista;
+        public int Editar(int id, int? profissionalId = null, int? profissionalEspecialidadeId = null, DateTime? data = null, TimeSpan? hora = null)
+        {
+            MessageBox.Show(data.ToString());
+            return Db.Atualizar<int>(
+                "cadastro_jornada_atualizar",
+                 SqlParam.In("id", SqlDbType.Int, id),
+                 SqlParam.In("@profissional_id", SqlDbType.Int, profissionalId),
+                 SqlParam.In("@profissional_especialidade_id", SqlDbType.Int, profissionalEspecialidadeId),
+                 SqlParam.In("@data", SqlDbType.Date, data),
+                 SqlParam.In("@hora", SqlDbType.Time, hora)
+            );
         }
     }
 }

@@ -90,7 +90,7 @@ namespace StudySchedule.Infrastructure.Repositories.Especialidade
             }
         }
 
-        public void Atualizar(int? id = null, string? descricao = null, bool? status = null)
+        public void Editar(int? id = null, string? descricao = null, bool? status = null)
         {
             using var conn = DbConnectionFactory.Create();
             using var cmd = new SqlCommand("especialidade_atualizar", conn);
@@ -107,8 +107,6 @@ namespace StudySchedule.Infrastructure.Repositories.Especialidade
 
         public void Excluir(int id)
         {
-            MessageBox.Show("Chegou ao repository");
-
             using var conn = DbConnectionFactory.Create();
 
             using var cmd = new SqlCommand("especialidade_excluir", conn);

@@ -40,7 +40,7 @@ namespace StudySchedule.Application.Services.Especialidade
                  return (false, "Descrição é obrigatória");              
             }
 
-            _repo.Atualizar(id, descricao, status);
+            _repo.Editar(id, descricao, status);
             return (true, "Especialidade atualizada com sucesso!");
         }
         public(bool ok, string msg, int? id) Inserir(string descricao, bool status)

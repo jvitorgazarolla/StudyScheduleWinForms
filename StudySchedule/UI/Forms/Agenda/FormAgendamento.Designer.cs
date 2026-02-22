@@ -291,7 +291,6 @@
         private CheckBox cb_alergico;
         private Label lbl_profissional;
         private ComboBox comboBox1;
-        private ComboBox cb_genero;
         private Label lbl_sexo;
         private TextBox textBox2;
         private Label lbl_cliente;

@@ -233,7 +233,6 @@ namespace StudySchedule.UI.Forms.Especialidade
 
                         MessageBox.Show(result.msg);
                         break;
-
                 }
       
             }

@@ -24,6 +24,8 @@ namespace StudySchedule.UI.Forms.Profissiional
         private readonly ProfissionalEspecialidadeService _profissionalEspecialidadeService;
         private readonly JornadaService _jornadaService;
         private string _filtroBusca;
+        private bool _edicao = false;
+        private int _jornadaId;
 
 
 
@@ -36,19 +38,20 @@ namespace StudySchedule.UI.Forms.Profissiional
             _profissionalEspecialidadeService = new ProfissionalEspecialidadeService();
             _filtroBusca = "";
 
-            dtp_horario.Format = DateTimePickerFormat.Custom;
-            dtp_horario.CustomFormat = "HH:mm";
-            dtp_horario.ShowUpDown = true;
+            //dtp_horario.Format = DateTimePickerFormat.Custom;
+            //dtp_horario.CustomFormat = "HH:mm";
+            //dtp_horario.ShowUpDown = true;
 
-            dtp_data.Format = DateTimePickerFormat.Custom;
-            dtp_data.CustomFormat = "dd.MM.yyyy";
-            dtp_data.ShowUpDown = false;
+            //dtp_data.Format = DateTimePickerFormat.Custom;
+            //dtp_data.CustomFormat = "dd.MM.yyyy";
+            //dtp_data.ShowUpDown = false;
 
-            dtp_busca_hora.CustomFormat = "HH:mm";
+            //dtp_busca_hora.CustomFormat = "HH:mm";
             dtp_busca_data.CustomFormat = "dd.MM.yyyy";
             dtp_busca_data.ShowUpDown = false;
 
             buscarProfissional();
+
         }
 
         private void buscarProfissional()
@@ -63,106 +66,78 @@ namespace StudySchedule.UI.Forms.Profissiional
             cb_profissional.ValueMember = "id";
 
         }
-        private void buscaEspecialidade(int profissionalId)
-        {
-            var lista = new List<ProfissionalEspecialidadeDto>();
 
-            lista.Add(new ProfissionalEspecialidadeDto { Id = 0, Descricao = "Selecione" });
 
-            if (profissionalId > 0)
-            {
-                var especialidade = _profissionalEspecialidadeService.Buscar(profissionalId: profissionalId);
-                lista.AddRange(especialidade);
-            }
-
-            cb_especialidade.DataSource = null;
-            cb_especialidade.DisplayMember = "Descricao";
-            cb_especialidade.ValueMember = "Id";
-            cb_especialidade.DataSource = lista;
-
-            cb_especialidade.SelectedValue = 0;
-        }
-        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
-        {
-            dtp_horario.Format = DateTimePickerFormat.Custom;
-            dtp_horario.CustomFormat = "HH:mm";
-            dtp_horario.ShowUpDown = true;
-        }
 
         private void btn_novo_Click(object sender, EventArgs e)
         {
             pnl_edicao.Visible = true;
+            btn_salvar.Text = "Cadastar";
+            _edicao = false;
+            //cb_especialidade.SelectedValue = 0;
         }
 
-        private void FormJornada_Load(object sender, EventArgs e)
-        {
-            var filtros = new List<FiltroBuscaJornadaDto>
-            {
-                 new FiltroBuscaJornadaDto { Id = 0, Nome = "Profissional"},
-                 new FiltroBuscaJornadaDto {Id = 1, Nome = "Data"},
-                 new FiltroBuscaJornadaDto {Id = 2, Nome = "Hora"},
-            };
-
-            cb_filtro.DisplayMember = "Nome";
-            cb_filtro.ValueMember = "Id";
-            cb_filtro.DataSource = filtros;
 
 
-
-        }
-
-        private void cb_profissional_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-            if (cb_profissional.SelectedValue == null)
-                return;
-
-            int profissionalId = (int)cb_profissional.SelectedValue;
-
-            buscaEspecialidade(profissionalId);
-
-            if (profissionalId != 0)
-            {
-                cb_especialidade.Enabled = true;
-            }
-            else
-            {
-                cb_especialidade.Enabled = false;
-
-            }
-        }
 
         private void btn_salvar_Click(object sender, EventArgs e)
         {
-            if (cb_profissional.SelectedValue == null)
-                return;
 
-            if (cb_especialidade.SelectedValue == null)
-                return;
-
-            int profissionalId = (int)cb_profissional.SelectedValue;
-            int profissionalEspecialidadeId = (int)cb_especialidade.SelectedValue;
+            int? profissionalId = cb_profissional.SelectedValue != null
+                ? Convert.ToInt32(cb_profissional.SelectedValue)
+                : (int?)null;
 
             DateTime data = dtp_data.Value.Date;
-
-            TimeSpan horario = new TimeSpan(
-                 dtp_horario.Value.Hour,
-                 dtp_horario.Value.Minute,
+            TimeSpan horaInicio = new TimeSpan(
+                 dtp_hora_inicio.Value.Hour,
+                 dtp_hora_inicio.Value.Minute,
                  0
             );
-            var resultInsert = _jornadaService.Inserir(profissionalId, profissionalEspecialidadeId, data, horario);
 
+            TimeSpan horaFim = new TimeSpan(
+             dtp_hora_fim.Value.Hour,
+             dtp_hora_fim.Value.Minute,
+             0
+            );
 
-            if (!resultInsert.ok)
+            if (profissionalId == 0 || profissionalId == null)
             {
-                MessageBox.Show(resultInsert.msg);
+                MessageBox.Show("Informe um profissional!");
+                return;
             }
+            
+             var resultInsert = _jornadaService.Inserir(profissionalId.Value, data, horaInicio, horaFim);
 
-            MessageBox.Show(resultInsert.msg);
-        }
+             MessageBox.Show(resultInsert.msg);
+            
 
-        private void pnl_edicao_Paint(object sender, PaintEventArgs e)
-        {
+
+
+
+
+
+            //    if (_edicao)
+            //    {
+            //        var resultEdicao = _jornadaService.Editar(_jornadaId, profissionalId, profissionalEspecialidadeId, data);
+            //        if (!resultEdicao.ok)
+            //        {
+            //            MessageBox.Show(resultEdicao.msg);
+            //        }
+            //        MessageBox.Show(resultEdicao.msg);
+            //    }
+            //    else
+            //    {
+
+            //        var resultInsert = _jornadaService.Inserir(profissionalId, profissionalEspecialidadeId, data, hora);
+
+
+            //        if (!resultInsert.ok)
+            //        {
+            //            MessageBox.Show(resultInsert.msg);
+            //        }
+            //        MessageBox.Show(resultInsert.msg);
+            //    }
+
 
         }
 
@@ -173,62 +148,26 @@ namespace StudySchedule.UI.Forms.Profissiional
 
         private void btn_buscar_Click(object sender, EventArgs e)
         {
-            gpb_lista.Visible = true;
-            var nomeProfissional = "";
-            var  data = "";
-            switch (_filtroBusca) {
-                case "Profissional":
-                    nomeProfissional = txt_busca_profissional.Text;
-                    break;
+            var nomeProfissional = txt_busca_profissional.Text;
+            DateTime data = dtp_busca_data.Value.Date;
+            MessageBox.Show(data.ToString());
+            var lista = _jornadaService.Buscar(nomeProfissional, data);
 
+
+            dgv_jornada.DataSource = null;
+            if (lista != null)
+            {
+                dgv_jornada.DataSource = lista;
             }
-            var lista = _jornadaService.Buscar(nomeProfissional, null, null);
+            dgv_jornada.Refresh();
 
-            dgv_jornada.DataSource = lista;
 
+            //adicionarBotao();
         }
 
         private void lbl_profissional_Click(object sender, EventArgs e)
         {
 
-        }
-
-        private void cb_filtro_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-            string valor = cb_filtro.Text;
-
-
-            switch (valor)
-            {
-                case "Profissional":
-                    txt_busca_profissional.Visible = true;
-                    dtp_busca_hora.Visible = false;
-                    dtp_busca_data.Visible = false;
-                    _filtroBusca = valor;
-
-                    break;
-                case "Hora":
-                    dtp_busca_hora.Visible = true;
-                    txt_busca_profissional.Visible = false;
-                    dtp_busca_data.Visible = false;
-                    _filtroBusca = valor;
-                    break;
-                case "Data":
-                    dtp_busca_hora.Visible = false;
-                    txt_busca_profissional.Visible = false;
-                    dtp_busca_data.Visible = true;
-                    _filtroBusca = valor;
-                    break;
-            }
-
-        }
-
-        private void dtp_busca_hora_ValueChanged(object sender, EventArgs e)
-        {
-            dtp_busca_hora.Format = DateTimePickerFormat.Custom;
-            dtp_busca_hora.CustomFormat = "HH:mm";
-            dtp_busca_hora.ShowUpDown = true;
         }
 
         private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
@@ -237,5 +176,100 @@ namespace StudySchedule.UI.Forms.Profissiional
             dtp_busca_data.CustomFormat = "dd.MM.yyyy";
             dtp_busca_data.ShowUpDown = false;
         }
+
+        private void adicionarBotao()
+        {
+            configurarColunasAcoes();
+        }
+        private void configurarColunasAcoes()
+        {
+            try
+            {
+                dgv_jornada.Columns.Add(new DataGridViewButtonColumn
+                {
+                    Name = "btnEditar",
+                    HeaderText = "",
+                    Text = "Editar",
+                    UseColumnTextForButtonValue = true,
+                    FlatStyle = FlatStyle.Flat,
+                    Width = 70,
+                    //DefaultCellStyle = { BackColor = Color.SteelBlue, ForeColor = Color.White }
+                });
+
+                dgv_jornada.Columns.Add(new DataGridViewButtonColumn
+                {
+                    Name = "btnExcluir",
+                    HeaderText = "",
+                    Text = "Excluir",
+                    UseColumnTextForButtonValue = true,
+                    FlatStyle = FlatStyle.Flat,
+                    Width = 70,
+                    DefaultCellStyle = { BackColor = Color.IndianRed, ForeColor = Color.White }
+                });
+            }
+            finally
+            {
+
+            }
+        }
+
+        private void dgv_jornada_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var colunaSelecionada = dgv_jornada.Columns[e.ColumnIndex].Name;
+            var selecionado = dgv_jornada.Rows[e.RowIndex].DataBoundItem as JornadaDto;
+
+            if (selecionado != null)
+            {
+                if (colunaSelecionada == "btnEditar")
+                {
+
+                    _edicao = true;
+                    _jornadaId = selecionado.Id;
+                    btn_salvar.Text = "Atualizar";
+
+                    pnl_edicao.Visible = true;
+
+
+                    //cb_profissional.ValueMember = "13";
+
+                }
+            }
+
+        }
+
+        private void dtp_hora_inicio_ValueChanged(object sender, EventArgs e)
+        {
+            dtp_hora_inicio.Format = DateTimePickerFormat.Custom;
+            dtp_hora_inicio.CustomFormat = "HH:mm";
+            dtp_hora_inicio.ShowUpDown = true;
+        }
+
+        private void dtp_hora_fim_ValueChanged(object sender, EventArgs e)
+        {
+            dtp_hora_fim.Format = DateTimePickerFormat.Custom;
+            dtp_hora_fim.CustomFormat = "HH:mm";
+            dtp_hora_fim.ShowUpDown = true;
+        }
+
+        private void lbl_profissiional_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbl_cadastrar_jornada_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pnl_nova_jornada_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void txt_busca_profissional_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

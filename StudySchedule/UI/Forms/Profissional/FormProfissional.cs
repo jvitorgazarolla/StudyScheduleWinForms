@@ -25,6 +25,9 @@ namespace StudySchedule.UI.Forms.Profissiional
         public FormProfissional()
         {
             InitializeComponent();
+      
+            check_status.Checked = true;
+            
             var repositoryEspecialidade = new EspecialidadeRepository();
             _especialidadeService = new EspecialidadeService();
             _profissionalService = new ProfissionalService();
@@ -34,7 +37,7 @@ namespace StudySchedule.UI.Forms.Profissiional
 
         private void Profissional_Load(object sender, EventArgs e)
         {
-            check_status.Checked = true;
+            //check_status.Checked = true;
         }
 
         private void btn_novo_Click(object sender, EventArgs e)
@@ -42,7 +45,7 @@ namespace StudySchedule.UI.Forms.Profissiional
             ExibirPainelEdicao(true);
             txt_nome.Text = null;
             txt_telefone.Text = null;
-            check_status.Checked = false;
+            check_status.Checked = true;
             btn_salvar.Text = "Cadastrar";
             _edicao = false;
         }
@@ -191,7 +194,6 @@ namespace StudySchedule.UI.Forms.Profissiional
                     DefaultCellStyle = { BackColor = Color.IndianRed, ForeColor = Color.White }
                 });
 
-                // Agora pega as colunas com segurança
                 var colEditar = dgv_profissional.Columns["btnEditar"];
                 var colDesativar = dgv_profissional.Columns["btnDesativar"];
                 var colExcluir = dgv_profissional.Columns["btnExcluir"];

@@ -46,6 +46,7 @@
             lbl_titulo = new Label();
             pnl_content = new Panel();
             btn_close = new Button();
+            process1 = new System.Diagnostics.Process();
             pnl_sidebar.SuspendLayout();
             pnl_cliente.SuspendLayout();
             pnl_especialidade.SuspendLayout();
@@ -76,7 +77,7 @@
             // 
             pnl_cliente.Controls.Add(btn_gerenciar_cliente);
             pnl_cliente.Dock = DockStyle.Top;
-            pnl_cliente.Location = new Point(0, 476);
+            pnl_cliente.Location = new Point(0, 492);
             pnl_cliente.Name = "pnl_cliente";
             pnl_cliente.Size = new Size(218, 72);
             pnl_cliente.TabIndex = 7;
@@ -87,7 +88,7 @@
             btn_gerenciar_cliente.FlatStyle = FlatStyle.Flat;
             btn_gerenciar_cliente.Font = new Font("Verdana", 9F);
             btn_gerenciar_cliente.ForeColor = SystemColors.ButtonFace;
-            btn_gerenciar_cliente.Location = new Point(3, 6);
+            btn_gerenciar_cliente.Location = new Point(6, 0);
             btn_gerenciar_cliente.Name = "btn_gerenciar_cliente";
             btn_gerenciar_cliente.Size = new Size(206, 32);
             btn_gerenciar_cliente.TabIndex = 0;
@@ -104,7 +105,7 @@
             btn_cliente.ForeColor = SystemColors.Control;
             btn_cliente.Image = Properties.Resources.icons8_cliente_34;
             btn_cliente.ImageAlign = ContentAlignment.MiddleLeft;
-            btn_cliente.Location = new Point(0, 436);
+            btn_cliente.Location = new Point(0, 452);
             btn_cliente.Name = "btn_cliente";
             btn_cliente.Size = new Size(218, 40);
             btn_cliente.TabIndex = 6;
@@ -116,7 +117,7 @@
             // 
             pnl_especialidade.Controls.Add(btn_gerenciar_especialidade);
             pnl_especialidade.Dock = DockStyle.Top;
-            pnl_especialidade.Location = new Point(0, 364);
+            pnl_especialidade.Location = new Point(0, 380);
             pnl_especialidade.Name = "pnl_especialidade";
             pnl_especialidade.Size = new Size(218, 72);
             pnl_especialidade.TabIndex = 5;
@@ -144,7 +145,7 @@
             btn_especialidade.ForeColor = SystemColors.Control;
             btn_especialidade.Image = Properties.Resources.icons8_barbearia_34;
             btn_especialidade.ImageAlign = ContentAlignment.MiddleLeft;
-            btn_especialidade.Location = new Point(0, 324);
+            btn_especialidade.Location = new Point(0, 340);
             btn_especialidade.Name = "btn_especialidade";
             btn_especialidade.Size = new Size(218, 40);
             btn_especialidade.TabIndex = 4;
@@ -156,7 +157,7 @@
             // 
             pnl_profissional.Controls.Add(btn_gerencar_profissional);
             pnl_profissional.Dock = DockStyle.Top;
-            pnl_profissional.Location = new Point(0, 252);
+            pnl_profissional.Location = new Point(0, 268);
             pnl_profissional.Name = "pnl_profissional";
             pnl_profissional.Size = new Size(218, 72);
             pnl_profissional.TabIndex = 3;
@@ -184,7 +185,7 @@
             btn_profissional.ForeColor = SystemColors.Control;
             btn_profissional.Image = Properties.Resources.icons8_profissional_34;
             btn_profissional.ImageAlign = ContentAlignment.MiddleLeft;
-            btn_profissional.Location = new Point(0, 212);
+            btn_profissional.Location = new Point(0, 228);
             btn_profissional.Name = "btn_profissional";
             btn_profissional.Size = new Size(218, 40);
             btn_profissional.TabIndex = 2;
@@ -199,7 +200,7 @@
             pnl_agenda.Dock = DockStyle.Top;
             pnl_agenda.Location = new Point(0, 140);
             pnl_agenda.Name = "pnl_agenda";
-            pnl_agenda.Size = new Size(218, 72);
+            pnl_agenda.Size = new Size(218, 88);
             pnl_agenda.TabIndex = 1;
             // 
             // btn_gerenciar_agenda
@@ -208,7 +209,7 @@
             btn_gerenciar_agenda.FlatStyle = FlatStyle.Flat;
             btn_gerenciar_agenda.Font = new Font("Verdana", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btn_gerenciar_agenda.ForeColor = SystemColors.ButtonFace;
-            btn_gerenciar_agenda.Location = new Point(3, 3);
+            btn_gerenciar_agenda.Location = new Point(6, 44);
             btn_gerenciar_agenda.Name = "btn_gerenciar_agenda";
             btn_gerenciar_agenda.Size = new Size(212, 32);
             btn_gerenciar_agenda.TabIndex = 1;
@@ -222,7 +223,7 @@
             btn_agenda_jornada.FlatStyle = FlatStyle.Flat;
             btn_agenda_jornada.Font = new Font("Verdana", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btn_agenda_jornada.ForeColor = SystemColors.ButtonFace;
-            btn_agenda_jornada.Location = new Point(3, 34);
+            btn_agenda_jornada.Location = new Point(3, 6);
             btn_agenda_jornada.Name = "btn_agenda_jornada";
             btn_agenda_jornada.Size = new Size(206, 32);
             btn_agenda_jornada.TabIndex = 0;
@@ -271,9 +272,9 @@
             // 
             // pnl_content
             // 
-            pnl_content.Location = new Point(259, 38);
+            pnl_content.Location = new Point(248, 38);
             pnl_content.Name = "pnl_content";
-            pnl_content.Size = new Size(995, 561);
+            pnl_content.Size = new Size(1016, 561);
             pnl_content.TabIndex = 1;
             // 
             // btn_close
@@ -289,6 +290,19 @@
             btn_close.UseVisualStyleBackColor = false;
             btn_close.Click += btn_close_Click;
             btn_close.MouseHover += btn_close_MouseHover;
+            // 
+            // process1
+            // 
+            process1.StartInfo.CreateNewProcessGroup = false;
+            process1.StartInfo.Domain = "";
+            process1.StartInfo.LoadUserProfile = false;
+            process1.StartInfo.Password = null;
+            process1.StartInfo.StandardErrorEncoding = null;
+            process1.StartInfo.StandardInputEncoding = null;
+            process1.StartInfo.StandardOutputEncoding = null;
+            process1.StartInfo.UseCredentialsForNetworkingOnly = false;
+            process1.StartInfo.UserName = "";
+            process1.SynchronizingObject = this;
             // 
             // DashboardForm
             // 
@@ -334,5 +348,6 @@
         private Button btn_gerenciar_cliente;
         private Button btn_cliente;
         private Button btn_gerenciar_agenda;
+        private System.Diagnostics.Process process1;
     }
 }
