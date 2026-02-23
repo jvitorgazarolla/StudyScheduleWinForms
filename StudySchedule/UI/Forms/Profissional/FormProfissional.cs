@@ -4,6 +4,7 @@ using StudySchedule.Application.Services.Especialidade;
 using StudySchedule.Application.Services.Profissional;
 using StudySchedule.Infrastructure.Repositories.Especialidade;
 using StudySchedule.Infrastructure.Repositories.Profissional;
+using StudySchedule.UI.Extensions;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -126,97 +127,17 @@ namespace StudySchedule.UI.Forms.Profissiional
             if (lista != null)
             {
                 dgv_profissional.DataSource = lista;
-                removeCamposDataGridView("id");
-                removeCamposDataGridView("EspecialidadeId");
 
 
-                editaNomeCampoDataGridView("EspecialidadeNome", "Especialidade");
-
+                dgv_profissional.removeColumn("id");
+                dgv_profissional.removeColumn("EspecialidadeId");
+                dgv_profissional.setHeader("EspecialidadeNome", "Especialidade");
             }
+
+            dgv_profissional.addButtons();
             dgv_profissional.Refresh();
-            adicionarBotao();
         }
 
-        private void removeCamposDataGridView(string campo)
-        {
-            dgv_profissional.Columns[campo].Visible = false;
-        }
-
-        private void editaNomeCampoDataGridView(string campo, string nome)
-        {
-            dgv_profissional.Columns[campo].HeaderText = nome;
-        }
-        private void adicionarBotao()
-        {
-            ConfigurarColunasAcao();
-        }
-        private void ConfigurarColunasAcao()
-        {
-
-            try
-            {
-                dgv_profissional.SuspendLayout();
-
-                RemoveIfExists(dgv_profissional, "btnEditar");
-                RemoveIfExists(dgv_profissional, "btnDesativar");
-                RemoveIfExists(dgv_profissional, "btnExcluir");
-
-                dgv_profissional.Columns.Add(new DataGridViewButtonColumn
-                {
-                    Name = "btnEditar",
-                    HeaderText = "",
-                    Text = "Editar",
-                    UseColumnTextForButtonValue = true,
-                    FlatStyle = FlatStyle.Flat,
-                    Width = 70,
-                    DefaultCellStyle = { BackColor = Color.SteelBlue, ForeColor = Color.White }
-                });
-
-                dgv_profissional.Columns.Add(new DataGridViewButtonColumn
-                {
-                    Name = "btnDesativar",
-                    HeaderText = "",
-                    Text = "Desativar",
-                    UseColumnTextForButtonValue = true,
-                    FlatStyle = FlatStyle.Flat,
-                    Width = 85,
-                    DefaultCellStyle = { BackColor = Color.Orange, ForeColor = Color.White }
-                });
-
-                dgv_profissional.Columns.Add(new DataGridViewButtonColumn
-                {
-                    Name = "btnExcluir",
-                    HeaderText = "",
-                    Text = "Excluir",
-                    UseColumnTextForButtonValue = true,
-                    FlatStyle = FlatStyle.Flat,
-                    Width = 70,
-                    DefaultCellStyle = { BackColor = Color.IndianRed, ForeColor = Color.White }
-                });
-
-                var colEditar = dgv_profissional.Columns["btnEditar"];
-                var colDesativar = dgv_profissional.Columns["btnDesativar"];
-                var colExcluir = dgv_profissional.Columns["btnExcluir"];
-
-                if (colEditar != null && colDesativar != null && colExcluir != null)
-                {
-                    int last = dgv_profissional.Columns.Count - 1;
-
-                    colExcluir.DisplayIndex = last;
-                    colDesativar.DisplayIndex = last - 1;
-                    colEditar.DisplayIndex = last - 2;
-                }
-            }
-            finally
-            {
-                dgv_profissional.ResumeLayout();
-            }
-        }
-        private static void RemoveIfExists(DataGridView dgv, string colName)
-        {
-            if (dgv.Columns.Contains(colName))
-                dgv.Columns.Remove(colName);
-        }
 
         private void dgv_profissional_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {

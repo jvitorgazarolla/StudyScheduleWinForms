@@ -16,13 +16,10 @@ namespace StudySchedule.Infrastructure.Repositories
             using var cmd = new SqlCommand("login", conn);
 
             cmd.CommandType = System.Data.CommandType.StoredProcedure;
-
-
             cmd.Parameters.AddWithValue("@usuario", usuario);
             cmd.Parameters.AddWithValue("@senha", senha);
 
             conn.Open();
-
 
             using var rd = cmd.ExecuteReader();
 
@@ -38,7 +35,5 @@ namespace StudySchedule.Infrastructure.Repositories
                 Usuario = rd.GetString(rd.GetOrdinal("usuario"))              
             };
         }
-    }
-
-  
+    } 
 }

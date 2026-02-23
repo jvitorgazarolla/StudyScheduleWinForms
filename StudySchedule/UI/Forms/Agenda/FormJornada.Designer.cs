@@ -53,6 +53,7 @@
             dtp_busca_data = new DateTimePicker();
             label2 = new Label();
             label4 = new Label();
+            pb_loading = new ProgressBar();
             dgv_jornada = new DataGridView();
             pnl_resultado_busca = new Panel();
             pnl_nova_jornada.SuspendLayout();
@@ -115,7 +116,6 @@
             lbl_profissiional.Size = new Size(104, 21);
             lbl_profissiional.TabIndex = 9;
             lbl_profissiional.Text = "Profissional:";
-            lbl_profissiional.Click += lbl_profissiional_Click;
             // 
             // label1
             // 
@@ -219,7 +219,6 @@
             pnl_nova_jornada.Name = "pnl_nova_jornada";
             pnl_nova_jornada.Size = new Size(347, 749);
             pnl_nova_jornada.TabIndex = 28;
-            pnl_nova_jornada.Paint += pnl_nova_jornada_Paint;
             // 
             // cb_profissional
             // 
@@ -262,7 +261,6 @@
             lbl_cadastrar_jornada.Size = new Size(174, 25);
             lbl_cadastrar_jornada.TabIndex = 10;
             lbl_cadastrar_jornada.Text = "Cadastrar Jornada";
-            lbl_cadastrar_jornada.Click += lbl_cadastrar_jornada_Click;
             // 
             // panel2
             // 
@@ -292,7 +290,6 @@
             txt_busca_profissional.Name = "txt_busca_profissional";
             txt_busca_profissional.Size = new Size(339, 27);
             txt_busca_profissional.TabIndex = 31;
-            txt_busca_profissional.TextChanged += txt_busca_profissional_TextChanged;
             // 
             // btn_buscar
             // 
@@ -311,9 +308,11 @@
             // 
             // dtp_busca_data
             // 
+            dtp_busca_data.Checked = false;
             dtp_busca_data.Font = new Font("Segoe UI", 11F);
             dtp_busca_data.Location = new Point(364, 32);
             dtp_busca_data.Name = "dtp_busca_data";
+            dtp_busca_data.ShowCheckBox = true;
             dtp_busca_data.Size = new Size(336, 27);
             dtp_busca_data.TabIndex = 13;
             // 
@@ -339,6 +338,19 @@
             label4.TabIndex = 10;
             label4.Text = "Filtrar por Profissional:";
             // 
+            // pb_loading
+            // 
+            pb_loading.ForeColor = Color.Lime;
+            pb_loading.Location = new Point(353, 58);
+            pb_loading.MarqueeAnimationSpeed = 1;
+            pb_loading.Maximum = 30;
+            pb_loading.Name = "pb_loading";
+            pb_loading.Size = new Size(832, 25);
+            pb_loading.Step = 20;
+            pb_loading.Style = ProgressBarStyle.Marquee;
+            pb_loading.TabIndex = 60;
+            pb_loading.Visible = false;
+            // 
             // dgv_jornada
             // 
             dgv_jornada.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -346,6 +358,7 @@
             dgv_jornada.Name = "dgv_jornada";
             dgv_jornada.Size = new Size(837, 559);
             dgv_jornada.TabIndex = 31;
+            dgv_jornada.CellContentClick += dgv_jornada_CellContentClick;
             // 
             // pnl_resultado_busca
             // 
@@ -362,6 +375,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlLight;
             ClientSize = new Size(1205, 700);
+            Controls.Add(pb_loading);
             Controls.Add(pnl_resultado_busca);
             Controls.Add(panel3);
             Controls.Add(panel2);
@@ -372,6 +386,7 @@
             Name = "FormJornada";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FormJornada";
+            Load += FormJornada_Load;
             pnl_nova_jornada.ResumeLayout(false);
             pnl_nova_jornada.PerformLayout();
             panel3.ResumeLayout(false);
@@ -412,5 +427,6 @@
         private TextBox txt_busca_profissional;
         private Panel pnl_resultado_busca;
         private ComboBox cb_profissional;
+        private ProgressBar pb_loading;
     }
 }

@@ -1,6 +1,7 @@
 ﻿using StudySchedule.Application.DTOs.Especialidade;
 using StudySchedule.Application.Services.Especialidade;
 using StudySchedule.Infrastructure.Repositories.Especialidade;
+using StudySchedule.UI.Extensions;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -87,94 +88,7 @@ namespace StudySchedule.UI.Forms.Especialidade
                 dgv_especialidade.DataSource = lista;
             }
             dgv_especialidade.Refresh();
-            AdicionarBotao();
-
-        }
-
-        private void txt_descricao_especialidade_TextChanged(object sender, EventArgs e)
-        {
-            btn_buscar.Enabled = txt_descricao_especialidade.Text.Trim().Length >= 3;
-
-        }
-
-        private void FormEspecialidade_Load(object sender, EventArgs e)
-        {
-            AdicionarColunasAcoes();
-
-        }
-
-        private void AdicionarColunasAcoes()
-        {
-            //AdicionarBotao("colEditar", "Editar");
-        }
-
-        private void AdicionarBotao()
-        {
-            ConfigurarColunasAcao();
-        }
-        private void ConfigurarColunasAcao()
-        {
-            try
-            {
-                dgv_especialidade.SuspendLayout();
-
-                RemoveIfExists(dgv_especialidade, "btnEditar");
-                RemoveIfExists(dgv_especialidade, "btnDesativar");
-                RemoveIfExists(dgv_especialidade, "btnExcluir");
-
-                dgv_especialidade.Columns.Add(new DataGridViewButtonColumn
-                {
-                    Name = "btnEditar",
-                    HeaderText = "",
-                    Text = "Editar",
-                    UseColumnTextForButtonValue = true,
-                    FlatStyle = FlatStyle.Flat,
-                    Width = 70,
-                    DefaultCellStyle = { BackColor = Color.SteelBlue, ForeColor = Color.White }
-                });
-
-                dgv_especialidade.Columns.Add(new DataGridViewButtonColumn
-                {
-                    Name = "btnDesativar",
-                    HeaderText = "",
-                    Text = "Desativar",
-                    UseColumnTextForButtonValue = true,
-                    FlatStyle = FlatStyle.Flat,
-                    Width = 85,
-                    DefaultCellStyle = { BackColor = Color.Orange, ForeColor = Color.White }
-                });
-
-                dgv_especialidade.Columns.Add(new DataGridViewButtonColumn
-                {
-                    Name = "btnExcluir",
-                    HeaderText = "",
-                    Text = "Excluir",
-                    UseColumnTextForButtonValue = true,
-                    FlatStyle = FlatStyle.Flat,
-                    Width = 70,
-                    DefaultCellStyle = { BackColor = Color.IndianRed, ForeColor = Color.White }
-                });
-
-
-                var colEditar = dgv_especialidade.Columns["btnEditar"];
-                var colDesativar = dgv_especialidade.Columns["btnDesativar"];
-                var colExcluir = dgv_especialidade.Columns["btnExcluir"];
-
-                if (colEditar != null && colDesativar != null && colExcluir != null)
-                {
-                    int last = dgv_especialidade.Columns.Count - 1;
-
-                    colExcluir.DisplayIndex = last;
-                    colDesativar.DisplayIndex = last - 1;
-                    colEditar.DisplayIndex = last - 2;
-                }
-            }
-            finally
-            {
-                dgv_especialidade.ResumeLayout();
-            }
-
-
+            dgv_especialidade.addButtons();
         }
         private static void RemoveIfExists(DataGridView dgv, string colName)
         {
@@ -201,7 +115,6 @@ namespace StudySchedule.UI.Forms.Especialidade
                         btn_salvar.Text = "Atualizar";
                         break;
                     case "btnDesativar":
-
                         var r = _service.Editar(selecionado.Id, status: false, edit:true);
                         if (!r.ok)
                         {

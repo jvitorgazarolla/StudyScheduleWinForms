@@ -24,5 +24,10 @@ namespace StudySchedule.UI.Forms.Agendamento
         {
             pnl_edicao.Visible = true;
         }
+
+        private void btn_buscar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -137,7 +137,6 @@
             // btn_buscar
             // 
             btn_buscar.BackColor = Color.FromArgb(0, 0, 192);
-            btn_buscar.Enabled = false;
             btn_buscar.FlatAppearance.BorderSize = 0;
             btn_buscar.Font = new Font("Segoe UI", 11.25F);
             btn_buscar.ForeColor = SystemColors.ControlLightLight;
@@ -171,7 +170,6 @@
             txt_descricao_especialidade.PlaceholderText = "Digite o nome da especialidade para busca";
             txt_descricao_especialidade.Size = new Size(918, 27);
             txt_descricao_especialidade.TabIndex = 16;
-            txt_descricao_especialidade.TextChanged += txt_descricao_especialidade_TextChanged;
             // 
             // lbl_titulo
             // 
@@ -222,7 +220,6 @@
             Controls.Add(lbl_titulo);
             Name = "FormEspecialidade";
             Text = "FormEspecialidade";
-            Load += FormEspecialidade_Load;
             pnl_edicao.ResumeLayout(false);
             pnl_edicao.PerformLayout();
             gpb_lista.ResumeLayout(false);

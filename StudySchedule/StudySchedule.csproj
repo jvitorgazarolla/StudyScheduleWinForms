@@ -15,6 +15,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="UI\Forms\Agenda\FormJornada2.0.cs" />
+    <Compile Remove="UI\Forms\Agenda\FormJornada2.0.Designer.cs" />
     <Compile Remove="UI\Forms\Cliente\Cadastro.cs" />
     <Compile Remove="UI\Forms\Cliente\Cadastro.Designer.cs" />
     <Compile Remove="UI\Forms\FormDashboard.cs" />
@@ -22,6 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Remove="UI\Forms\Agenda\FormJornada2.0.resx" />
     <EmbeddedResource Remove="UI\Forms\Cliente\Cadastro.resx" />
     <EmbeddedResource Remove="UI\Forms\FormDashboard.resx" />
   </ItemGroup>

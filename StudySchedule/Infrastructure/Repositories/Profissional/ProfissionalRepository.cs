@@ -16,16 +16,14 @@ namespace StudySchedule.Infrastructure.Repositories.Profissional
             {
                 // 13/02 => Ess procedure já está inserind na tabela cadastro_profissional_especialidade
                 //ADICIONAR VERIFICAÇÃO(CASO USUÁRIO JA CADASTRADO) ---- DECIDIR QUAIS CAMPOS VERIFICAR
-
                 // 15/02 Vários profissionais pode ter várias especialidades, Lembrar de adicionar funcionalidade para isso
-                using var conn = DbConnectionFactory.Create();
 
+                using var conn = DbConnectionFactory.Create();
                 using var cmdProfissional = new SqlCommand("profissional_inserir", conn);
 
                 conn.Open();
 
                 cmdProfissional.CommandType = CommandType.StoredProcedure;
-
                 cmdProfissional.Parameters.AddWithValue("@nome", nome);
                 cmdProfissional.Parameters.AddWithValue("@telefone", telefone);
                 cmdProfissional.Parameters.AddWithValue("@status", status);
@@ -39,28 +37,27 @@ namespace StudySchedule.Infrastructure.Repositories.Profissional
                 //{
                 //    using var cmdUsuarioEspecialidade = new SqlCommand("profissional_especialidade_inserir", conn);
                 //    cmdUsuarioEspecialidade.CommandType = CommandType.StoredProcedure;
-
                 //}
 
             }catch(Exception ex)
             {
                 throw new Exception("Profissional já cadastrado", ex);
             }
-
         }
 
         public void Editar(int? id = null, string? nome = null, string? telefone = null, bool? status = null, int? especialideId = null)
         {
             using var conn = DbConnectionFactory.Create();
             using var cmd = new SqlCommand("profissional_atualizar", conn);
+
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@id", id);
             cmd.Parameters.AddWithValue("@nome", nome);
             cmd.Parameters.AddWithValue("@telefone", telefone);
             cmd.Parameters.AddWithValue("@status", status);
             //cmd.Parameters.AddWithValue("@especialidade_id", especialideId);
-            conn.Open();
 
+            conn.Open();
             cmd.ExecuteNonQuery();
         }
 
@@ -71,8 +68,8 @@ namespace StudySchedule.Infrastructure.Repositories.Profissional
             using var cmd = new SqlCommand("profissional_buscar", conn);
             cmd.Parameters.AddWithValue("@termo", termo);
             cmd.Parameters.AddWithValue("@status", status);
-
             cmd.CommandType = CommandType.StoredProcedure;
+
             conn.Open();
 
             using var rd = cmd.ExecuteReader();
@@ -91,7 +88,6 @@ namespace StudySchedule.Infrastructure.Repositories.Profissional
             }
             return lista;
         }
-
         public void Excluir(int id)
         {
             using var conn = DbConnectionFactory.Create();

@@ -20,12 +20,9 @@ namespace StudySchedule.Infrastructure.Repositories.Agenda
             SqlParam.In("hora_inicio", SqlDbType.Time, horaInicio),
             SqlParam.In("hora_fim",SqlDbType.Time, horaFim)
             );
-
         }
-
         public List<JornadaDto>Buscar(string? nomeProfissional = null, DateTime? data = null, TimeSpan? horaInicio = null, TimeSpan? horaFim = null)
         {
-            MessageBox.Show(nomeProfissional + "Repository");
             return Db.Buscar<JornadaDto>(
                 "cadastro_jornada_buscar",
                 reader => new JornadaDto
@@ -41,10 +38,8 @@ namespace StudySchedule.Infrastructure.Repositories.Agenda
                 SqlParam.In("@data", SqlDbType.Date, data)
               );
         }
-
         public int Editar(int id, int? profissionalId = null, int? profissionalEspecialidadeId = null, DateTime? data = null, TimeSpan? hora = null)
         {
-            MessageBox.Show(data.ToString());
             return Db.Atualizar<int>(
                 "cadastro_jornada_atualizar",
                  SqlParam.In("id", SqlDbType.Int, id),

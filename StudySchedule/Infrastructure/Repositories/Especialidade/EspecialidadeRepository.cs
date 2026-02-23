@@ -13,13 +13,10 @@ namespace StudySchedule.Infrastructure.Repositories.Especialidade
         public List<EspecialidadeDto> Listar()
         {
             var lista = new List<EspecialidadeDto>();
-
             using var conn = DbConnectionFactory.Create();
-
             using var cmd = new SqlCommand("especialidade_listar", conn);
 
             cmd.CommandType = CommandType.StoredProcedure;
-
             conn.Open();
 
             using var rd = cmd.ExecuteReader();
@@ -33,22 +30,18 @@ namespace StudySchedule.Infrastructure.Repositories.Especialidade
                     Status = rd.GetInt32(rd.GetOrdinal("status")) == 1
                 });
             }
-
             return lista;
-
         }
 
         public List<EspecialidadeDto> Buscar(string? termo = null, bool? status = null)
         {
             var lista = new List<EspecialidadeDto>();
-
             using var conn = DbConnectionFactory.Create();
             using var cmd = new SqlCommand("especialidade_buscar", conn);
+
             cmd.Parameters.AddWithValue("@termo", termo);
             cmd.Parameters.AddWithValue("@status", status);
-
             cmd.CommandType = CommandType.StoredProcedure;
-
 
             conn.Open();
 
@@ -65,8 +58,6 @@ namespace StudySchedule.Infrastructure.Repositories.Especialidade
             }
             return lista;
         }
-
-
         public int Inserir(string descricao, bool status)
         {
             try
@@ -75,13 +66,11 @@ namespace StudySchedule.Infrastructure.Repositories.Especialidade
                 using var cmd = new SqlCommand("especialidade_inserir", conn);
 
                 cmd.CommandType = CommandType.StoredProcedure;
-
                 cmd.Parameters.AddWithValue("descricao", descricao);
                 cmd.Parameters.AddWithValue("status", status);
                 conn.Open();
 
                 var id = cmd.ExecuteScalar();
-
                 return System.Convert.ToInt32(id);
 
             }catch(SqlException ex) when (ex.Number == 2627 || ex.Number == 2601)
@@ -94,8 +83,8 @@ namespace StudySchedule.Infrastructure.Repositories.Especialidade
         {
             using var conn = DbConnectionFactory.Create();
             using var cmd = new SqlCommand("especialidade_atualizar", conn);
-            cmd.CommandType = CommandType.StoredProcedure;
 
+            cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@id", id);
             cmd.Parameters.AddWithValue("@descricao", descricao);
             cmd.Parameters.AddWithValue("@status", status);
@@ -121,7 +110,6 @@ namespace StudySchedule.Infrastructure.Repositories.Especialidade
             {
                 throw new Exception("Nenhuma especialidade foi excluida");
             }
-
         }
     }
 }

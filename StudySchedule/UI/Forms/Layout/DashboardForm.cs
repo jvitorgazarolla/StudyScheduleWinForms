@@ -1,4 +1,4 @@
-﻿using StudySchedule.UI.Forms.Agenda;
+﻿//using StudySchedule.UI.Forms.Agenda;
 using StudySchedule.UI.Forms.Especialidade;
 using StudySchedule.UI.Forms.Profissiional;
 using System;
@@ -52,19 +52,6 @@ namespace StudySchedule.UI.Forms
 
         private void abrirFormNoPainel(Form form)
         {
-            //pnl_content.Controls.Clear();
-
-            //pnl_content.Controls.Clear();
-
-            //form.TopLevel = false;
-            //form.FormBorderStyle = FormBorderStyle.None;
-            //form.AutoSize = true;
-            //form.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-
-            //pnl_content.Dock = DockStyle.None;
-            ////pnl_content.Size = form.Size;
-
-            //pnl_content.Controls.Add(form);
             form.Show();
         }
 
@@ -76,7 +63,6 @@ namespace StudySchedule.UI.Forms
 
         private void btn_agenda_jornada_Click(object sender, EventArgs e)
         {
-            //abrirFormNoPainel(new FormJornada());
             FormJornada form = new FormJornada();
             form.Show();
         }
@@ -115,7 +101,6 @@ namespace StudySchedule.UI.Forms
         private void btn_gerenciar_especialidade_Click(object sender, EventArgs e)
         {
             abrirFormNoPainel(new FormEspecialidade());
-
         }
         private void btn_cliente_Click(object sender, EventArgs e)
         {
@@ -135,11 +120,6 @@ namespace StudySchedule.UI.Forms
         private void btn_gerenciar_agenda_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Em desenvolvimento");
-        }
-
-        private void btn_agenda_jornada2_Click(object sender, EventArgs e)
-        {
-            abrirFormNoPainel(new FormJornada2());
         }
     }
 }

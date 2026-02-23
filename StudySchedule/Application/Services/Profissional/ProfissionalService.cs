@@ -15,7 +15,6 @@ namespace StudySchedule.Application.Services.Profissional
             var repo = new ProfissionalRepository();
             _repo = repo;
         }
-
         public (bool ok, string msg, int? id) Inserir (string nome, string telefone, bool status, int especialidadeId)
         {
             nome =  (nome ?? "").Trim();
@@ -28,9 +27,7 @@ namespace StudySchedule.Application.Services.Profissional
             if (string.IsNullOrEmpty(telefone))
             {
                 return (false, "Informe o telefone", null);
-
             }
-
             try
             {
                 var id = _repo.Inserir(nome, telefone, status, especialidadeId);
@@ -39,9 +36,6 @@ namespace StudySchedule.Application.Services.Profissional
             {
                 return (false, ex.Message, null);
             }
-
-            return (true, "Ok", 1);
-
         }
         public List<ProfissionalDto> Buscar(string? termo = null, bool? status = null)
         {
@@ -59,8 +53,8 @@ namespace StudySchedule.Application.Services.Profissional
                 return (false, "Informe o telefone");
 
             }
-
             _repo.Editar(id, descricao, telefone, status, especialidadeId);
+
             if(desativar == true)
             {
                 return (true, "Profissional Desativado com sucesso!");
@@ -69,9 +63,8 @@ namespace StudySchedule.Application.Services.Profissional
             {
                 return (true, "Profissional atualizado com sucesso!");
             }
-            
+          
         }
-
         public (bool ok, string msg)Excluir(int id){
             try
             {
@@ -91,10 +84,6 @@ namespace StudySchedule.Application.Services.Profissional
 
                 return (false, $"Não é possível excluir o profissional. Existe vínculo com especialidade ou agenda");
             }
-                
-
         }
-    }
-
-   
+    }  
 }

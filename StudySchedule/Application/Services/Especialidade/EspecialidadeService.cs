@@ -15,31 +15,24 @@ namespace StudySchedule.Application.Services.Especialidade
             var repo = new EspecialidadeRepository();
             _repo = repo;
         }
-
         public List<EspecialidadeDto> Listar()
         {
             return _repo.Listar();
         }
-
         public List<EspecialidadeDto> Buscar(string? termo = null, bool? status = null)
         {
-    
             return _repo.Buscar(termo, status);
-
         }
         public (bool ok, string msg) Editar(int? id, string? descricao = null, bool? status = null, bool? edit = null)
         {
-
             if (id <= 0)
             {
                 return (false, "Especialidade inválida");
             }
-
             if (string.IsNullOrEmpty(descricao) && edit != true) {
 
                  return (false, "Descrição é obrigatória");              
             }
-
             _repo.Editar(id, descricao, status);
             return (true, "Especialidade atualizada com sucesso!");
         }
@@ -51,7 +44,6 @@ namespace StudySchedule.Application.Services.Especialidade
             {
                 return (false, "Descrição da Especialidade é obrigatório", null);
             }
-
             try
             {
                 var id = _repo.Inserir(descricao, status);
@@ -62,7 +54,6 @@ namespace StudySchedule.Application.Services.Especialidade
                 return (false, ex.Message, null);
             }
         }
-
         public (bool ok, string msg) Excluir(int id)
         {
             try

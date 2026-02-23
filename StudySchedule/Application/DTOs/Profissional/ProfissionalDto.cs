@@ -10,9 +10,7 @@ namespace StudySchedule.Application.DTOs.Profissional
         public required string Nome { get; set; }
         public string Telefone { get; set; }
         public bool Status { get; set; }
-
         public int EspecialidadeId { get;set; }
-
         public string EspecialidadeNome { get; set; }
     }
 }

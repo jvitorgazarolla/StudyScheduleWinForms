@@ -8,7 +8,6 @@ namespace StudySchedule.Application.DTOs.Especialidade
     {
         public int Id {  get; set; }
         public required string Descricao {  get; set; }
-
         public required Boolean Status { get; set; }
     }
 }
