@@ -15,7 +15,6 @@ namespace StudySchedule.Application.Services.ProfissionalEspecialidade
             var repo = new ProfissionalEspecialidadeRepository();
             _repo = repo;
         }
-
         public List <ProfissionalEspecialidadeDto>Buscar(int? id = null, int? profissionalId = null, int? especialidadeId = null)
         {
             return _repo.Buscar(id, profissionalId, especialidadeId);

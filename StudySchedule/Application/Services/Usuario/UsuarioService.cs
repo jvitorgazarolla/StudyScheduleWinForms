@@ -14,7 +14,6 @@ namespace StudySchedule.Application.Services.Usuario
         {
             _repo = repo;
         }
-
         public LoginResult Login(string usuario, string senha)
         {
             if(string.IsNullOrWhiteSpace(usuario) || string.IsNullOrWhiteSpace(senha))
