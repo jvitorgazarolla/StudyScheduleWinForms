@@ -30,10 +30,28 @@ namespace StudySchedule.Application.Services.Agenda
                 return (false, ex.Message, null);
             }
         }
-        public (bool ok, string msg, int? id)Editar(int id, int? profissionalId = null, int? especialidadeId = null, DateTime? data = null, TimeSpan?  hora = null)
+        public (bool ok, string msg, int? id)Atualizar(int id, int? profissionalId = null, DateTime? data = null, TimeSpan? horaInicio = null, TimeSpan? horaFim = null)
         {
-            var result = _repo.Editar(id, profissionalId, especialidadeId, data, hora);
-            return (true, "Jornada Atualiazda com sucesso!", null);
+            try
+            {
+                var result = _repo.Atualizar(id, profissionalId, data, horaInicio, horaFim);
+                return (true, "Jornada Atualiazda com sucesso!", null);
+            }
+            catch (Exception ex) { 
+                return(false, ex.Message, null);
+            }
+        }
+
+        public (bool ok, string msg, int? id)Excluir(int id)
+        {
+            try
+            {
+                var result = _repo.Excluir(id);
+                return (true, "Jornada excluida com Sucesso!", null);
+            }
+            catch (Exception ex) { 
+                return (false, ex.Message, null);   
+            }
         }
     }
 }

@@ -56,16 +56,15 @@ namespace StudySchedule.UI.Forms.Profissiional
         }
         private void btn_novo_Click(object sender, EventArgs e)
         {
-            pnl_edicao.Visible = true;
             btn_salvar.Text = "Cadastar";
             _edicao = false;
-            //cb_especialidade.SelectedValue = 0;
         }
-        private void btn_salvar_Click(object sender, EventArgs e)
+        private async void btn_salvar_Click(object sender, EventArgs e)
         {
+
             int? profissionalId = cb_profissional.SelectedValue != null
                 ? Convert.ToInt32(cb_profissional.SelectedValue)
-                : (int?)null;
+                : (int?) null;
 
             DateTime data = dtp_data.Value.Date;
             TimeSpan horaInicio = new TimeSpan(
@@ -86,15 +85,30 @@ namespace StudySchedule.UI.Forms.Profissiional
                 return;
             }
 
-            var resultInsert = _jornadaService.Inserir(profissionalId.Value, data, horaInicio, horaFim);
-            MessageBox.Show(resultInsert.msg);
+            if (_edicao)
+            {
+                var resultEdit = _jornadaService.Atualizar(_jornadaId, profissionalId, data, horaInicio, horaFim);
+                if (!resultEdit.ok)
+                {
+                    MessageBox.Show(resultEdit.msg);
+                }
+                MessageBox.Show(resultEdit.msg);
+                btn_buscar_Click(btn_buscar, EventArgs.Empty);
+            }
+            else
+            {
+                var resultInsert = _jornadaService.Inserir(profissionalId.Value, data, horaInicio, horaFim);
+                MessageBox.Show(resultInsert.msg);
+
+                btn_buscar_Click(btn_buscar, EventArgs.Empty);
+
+            }
         }
 
         private void btn_cancelar_Click(object sender, EventArgs e)
         {
             pnl_edicao.Visible = false;
         }
-
         private async void btn_buscar_Click(object sender, EventArgs e)
         {
             try
@@ -143,10 +157,12 @@ namespace StudySchedule.UI.Forms.Profissiional
             dtp_busca_data.CustomFormat = "dd.MM.yyyy";
             dtp_busca_data.ShowUpDown = false;
         }
-        private void dgv_jornada_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private async void dgv_jornada_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             var colunaSelecionada = dgv_jornada.Columns[e.ColumnIndex].Name;
+
             var selecionado = dgv_jornada.Rows[e.RowIndex].DataBoundItem as JornadaDto;
+            var linha = dgv_jornada.Rows[e.RowIndex];
 
             if (selecionado != null)
             {
@@ -159,7 +175,27 @@ namespace StudySchedule.UI.Forms.Profissiional
                     dtp_data.Value = selecionado.Data;
                     dtp_hora_inicio.Value = DateTime.Today.Add(selecionado.HoraInicio);
                     dtp_hora_fim.Value = DateTime.Today.Add(selecionado.HoraFim);
-                    //pnl_edicao.Visible = true;
+                }
+                if(colunaSelecionada == "btnExcluir")
+                {
+                    var confirm = MessageBox.Show("Tem certeza que deseja excluir essa jornada?",
+                        "Sim",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Warning
+                        );
+
+                    if (confirm == DialogResult.Yes) { 
+                        var resultExcluir = _jornadaService.Excluir(selecionado.Id);
+                        if (!resultExcluir.ok)
+                        {
+                            MessageBox.Show(resultExcluir.msg);
+                        }
+                        MessageBox.Show(resultExcluir.msg);
+                        btn_buscar_Click(btn_buscar, EventArgs.Empty);
+
+
+                        
+                    }
                 }
             }
         }

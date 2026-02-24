@@ -2,32 +2,14 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Security.Policy;
 using System.Text;
 
 namespace StudySchedule.Infrastructure.Data
 {
     public static class Db
     {
-        public static A Atualizar<A>(string procedure, params SqlParameter[] parameters)
-        {
-            using var conn = DbConnectionFactory.Create();
-            using var cmd = new SqlCommand(procedure, conn);
 
-            cmd.CommandType = CommandType.StoredProcedure;
-
-            cmd.Parameters.AddRange(parameters);
-
-            conn.Open();
-
-            var result = cmd.ExecuteScalar();
-
-            if(result == null || result == DBNull.Value)
-            {
-                return default!;
-            }
-
-            return (A)Convert.ChangeType(result, typeof(A));
-        }
 
         public static I Inserir<I>(string procedure, params SqlParameter[] parameters)
         {
@@ -65,5 +47,26 @@ namespace StudySchedule.Infrastructure.Data
             return list;
 
         }
+
+        public static int AtualizarOrExcluir(string procedure, params SqlParameter[] parameters)
+        {
+            using var conn = DbConnectionFactory.Create();
+            using var cmd = new SqlCommand(procedure, conn);
+
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddRange(parameters);
+
+            conn.Open();
+            return cmd.ExecuteNonQuery();
+        }
+
+        public static bool Atualizar(string procedure, params SqlParameter[] parameteres) 
+            => AtualizarOrExcluir(procedure, parameteres) > 0;
+     
+        public static bool Excluir(string procedure, params SqlParameter[] parameteres) 
+            => AtualizarOrExcluir(procedure, parameteres) > 0;
+
+
     }
 }

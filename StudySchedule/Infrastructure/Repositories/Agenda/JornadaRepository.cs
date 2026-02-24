@@ -38,15 +38,24 @@ namespace StudySchedule.Infrastructure.Repositories.Agenda
                 SqlParam.In("@data", SqlDbType.Date, data)
               );
         }
-        public int Editar(int id, int? profissionalId = null, int? profissionalEspecialidadeId = null, DateTime? data = null, TimeSpan? hora = null)
+        public bool Atualizar(int id, int? profissionalId = null, DateTime? data = null, TimeSpan? horaInicio = null, TimeSpan? horaFim = null)
         {
-            return Db.Atualizar<int>(
+            return Db.Atualizar(
                 "cadastro_jornada_atualizar",
-                 SqlParam.In("id", SqlDbType.Int, id),
+                 SqlParam.In("@id", SqlDbType.Int, id),
                  SqlParam.In("@profissional_id", SqlDbType.Int, profissionalId),
-                 SqlParam.In("@profissional_especialidade_id", SqlDbType.Int, profissionalEspecialidadeId),
                  SqlParam.In("@data", SqlDbType.Date, data),
-                 SqlParam.In("@hora", SqlDbType.Time, hora)
+                 SqlParam.In("@horaInicio", SqlDbType.Time, horaInicio),
+                 SqlParam.In("@horaFim", SqlDbType.Time, horaFim)
+
+            );
+        }
+
+        public bool Excluir(int id)
+        {
+            return Db.Excluir(
+                "cadastro_jornada_excluir",
+                SqlParam.In("@id", SqlDbType.Int, id)
             );
         }
     }
