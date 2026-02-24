@@ -9,8 +9,6 @@ namespace StudySchedule.Infrastructure.Data
 {
     public static class Db
     {
-
-
         public static I Inserir<I>(string procedure, params SqlParameter[] parameters)
         {
             using var conn = DbConnectionFactory.Create();
@@ -37,8 +35,7 @@ namespace StudySchedule.Infrastructure.Data
 
             conn.Open();
 
-            using var reader = cmd.ExecuteReader();
-            
+            using var reader = cmd.ExecuteReader();        
             var list = new List<B>();
 
             while (reader.Read()) {
@@ -54,7 +51,6 @@ namespace StudySchedule.Infrastructure.Data
             using var cmd = new SqlCommand(procedure, conn);
 
             cmd.CommandType = CommandType.StoredProcedure;
-
             cmd.Parameters.AddRange(parameters);
 
             conn.Open();
