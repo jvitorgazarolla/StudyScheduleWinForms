@@ -41,7 +41,7 @@ namespace StudySchedule.Application.Services.Profissional
         {
             return _repo.Buscar(termo, status);
         }
-        public (bool ok, string msg) Editar(int? id = null, string? descricao = null, string? telefone = null, bool? status = null, int? especialidadeId = null, bool? desativar = null)
+        public (bool ok, string msg) Atualizar(int? id = null, string? descricao = null, string? telefone = null, bool? status = null, int? especialidadeId = null, bool? desativar = null)
         {
             if (string.IsNullOrEmpty(descricao) && desativar != true)
             {
@@ -53,7 +53,7 @@ namespace StudySchedule.Application.Services.Profissional
                 return (false, "Informe o telefone");
 
             }
-            _repo.Editar(id, descricao, telefone, status, especialidadeId);
+            _repo.Atualizar(id, descricao, telefone, status, especialidadeId);
 
             if(desativar == true)
             {

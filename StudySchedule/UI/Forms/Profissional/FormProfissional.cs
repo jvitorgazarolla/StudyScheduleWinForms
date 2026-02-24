@@ -76,7 +76,7 @@ namespace StudySchedule.UI.Forms.Profissiional
 
             if (_edicao)
             {
-                var resultEdit = _profissionalService.Editar(_idSelecionado, nome, telefone, status, especialidadeId);
+                var resultEdit = _profissionalService.Atualizar(_idSelecionado, nome, telefone, status, especialidadeId);
 
                 if (!resultEdit.ok)
                 {
@@ -164,7 +164,7 @@ namespace StudySchedule.UI.Forms.Profissiional
     
                     break;
                 case "btnDesativar":
-                    var r = _profissionalService.Editar(selecionado.Id, status: false, desativar: true);
+                    var r = _profissionalService.Atualizar(selecionado.Id, status: false, desativar: true);
                     if (!r.ok)
                     {
                         MessageBox.Show(r.msg);
