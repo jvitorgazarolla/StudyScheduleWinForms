@@ -5,6 +5,18 @@ Uso de SQL Server + Stored Procedures
 Padrão Service + Repository + DTO
 
 
+
+-----------------------
+
+Nos scripts para criar as tabelas e procedures está como USE [StudySchedule], alterar para o nome do seu banco de dados.
+
+Alterar também no arquivo DbConfig.cs para o nome do seu banco de dados e rodar para inserir o administrador!
+
+-------------------------
+
+
+
+
 Estrutura de Dependências
 
 Especialidades: Devem ser cadastradas previamente (ex: Corte + Barba, Corte, Sobrancelha + Corte).
