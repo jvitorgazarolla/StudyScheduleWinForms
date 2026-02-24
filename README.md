@@ -12,6 +12,8 @@ Nos scripts para criar as tabelas e procedures está como USE [StudySchedule], a
 
 Alterar também no arquivo DbConfig.cs para o nome do seu banco de dados e rodar para inserir o administrador!
 
+Algumas procedures estão com nome fora do padrão, porém ja estão sendo atualizadas!.
+
 -------------------------
 
 
