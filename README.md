@@ -8,7 +8,7 @@ Padrão Service + Repository + DTO
 
 -----------------------
 
-Nos scripts para criar as tabelas e procedures está como USE [StudySchedule], alterar para o nome do seu banco de dados.
+No arquivo para criar as tabelas no banco e procedures está como USE [StudySchedule], alterar para o nome do seu banco de dados.
 
 Alterar também no arquivo DbConfig.cs para o nome do seu banco de dados e rodar para inserir o administrador!
 
