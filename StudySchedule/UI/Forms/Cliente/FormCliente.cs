@@ -55,8 +55,6 @@ namespace StudySchedule.UI.Forms.Cliente
             }
             MessageBox.Show(inserir.msg);
 
-
-
         }
     }
 }
