@@ -33,7 +33,7 @@
             lbl_busca_profissional = new Label();
             btn_salvar = new Button();
             lbl_profissiional = new Label();
-            label1 = new Label();
+            lbl_duracao = new Label();
             dtp_duracao = new DateTimePicker();
             lbl_hora_fim = new Label();
             lbl_hora_inicio = new Label();
@@ -56,10 +56,12 @@
             pb_loading = new ProgressBar();
             dgv_jornada = new DataGridView();
             pnl_resultado_busca = new Panel();
+            toolStripContainer1 = new ToolStripContainer();
             pnl_nova_jornada.SuspendLayout();
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgv_jornada).BeginInit();
             pnl_resultado_busca.SuspendLayout();
+            toolStripContainer1.SuspendLayout();
             SuspendLayout();
             // 
             // dtp_dia
@@ -117,16 +119,16 @@
             lbl_profissiional.TabIndex = 9;
             lbl_profissiional.Text = "Profissional:";
             // 
-            // label1
+            // lbl_duracao
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.ForeColor = SystemColors.ControlDarkDark;
-            label1.Location = new Point(26, 359);
-            label1.Name = "label1";
-            label1.Size = new Size(116, 21);
-            label1.TabIndex = 8;
-            label1.Text = "Duração(Min)";
+            lbl_duracao.AutoSize = true;
+            lbl_duracao.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbl_duracao.ForeColor = SystemColors.ControlDarkDark;
+            lbl_duracao.Location = new Point(26, 359);
+            lbl_duracao.Name = "lbl_duracao";
+            lbl_duracao.Size = new Size(78, 21);
+            lbl_duracao.TabIndex = 8;
+            lbl_duracao.Text = "Duração:";
             // 
             // dtp_duracao
             // 
@@ -135,6 +137,7 @@
             dtp_duracao.Name = "dtp_duracao";
             dtp_duracao.Size = new Size(296, 25);
             dtp_duracao.TabIndex = 7;
+            dtp_duracao.ValueChanged += dtp_duracao_ValueChanged;
             // 
             // lbl_hora_fim
             // 
@@ -202,7 +205,7 @@
             pnl_nova_jornada.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             pnl_nova_jornada.BackColor = SystemColors.Control;
             pnl_nova_jornada.Controls.Add(cb_profissional);
-            pnl_nova_jornada.Controls.Add(label1);
+            pnl_nova_jornada.Controls.Add(lbl_duracao);
             pnl_nova_jornada.Controls.Add(dtp_duracao);
             pnl_nova_jornada.Controls.Add(btn_salvar);
             pnl_nova_jornada.Controls.Add(lbl_hora_fim);
@@ -364,10 +367,23 @@
             // 
             pnl_resultado_busca.BackColor = SystemColors.ButtonHighlight;
             pnl_resultado_busca.Controls.Add(dgv_jornada);
+            pnl_resultado_busca.Controls.Add(toolStripContainer1);
             pnl_resultado_busca.Location = new Point(353, 168);
             pnl_resultado_busca.Name = "pnl_resultado_busca";
             pnl_resultado_busca.Size = new Size(840, 520);
             pnl_resultado_busca.TabIndex = 32;
+            // 
+            // toolStripContainer1
+            // 
+            // 
+            // toolStripContainer1.ContentPanel
+            // 
+            toolStripContainer1.ContentPanel.Size = new Size(150, 150);
+            toolStripContainer1.Location = new Point(128, 102);
+            toolStripContainer1.Name = "toolStripContainer1";
+            toolStripContainer1.Size = new Size(150, 175);
+            toolStripContainer1.TabIndex = 32;
+            toolStripContainer1.Text = "toolStripContainer1";
             // 
             // FormJornada
             // 
@@ -393,6 +409,8 @@
             panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgv_jornada).EndInit();
             pnl_resultado_busca.ResumeLayout(false);
+            toolStripContainer1.ResumeLayout(false);
+            toolStripContainer1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -410,7 +428,7 @@
         private DateTimePicker dtp_hora_fim;
         private DateTimePicker dtp_hora_inicio;
         private DateTimePicker dtp_data;
-        private Label label1;
+        private Label lbl_duracao;
         private Label lbl_profissiional;
         private Button btn_salvar;
         private Panel pnl_nova_jornada;
@@ -428,5 +446,6 @@
         private Panel pnl_resultado_busca;
         private ComboBox cb_profissional;
         private ProgressBar pb_loading;
+        private ToolStripContainer toolStripContainer1;
     }
 }

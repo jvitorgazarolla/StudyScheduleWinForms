@@ -1,4 +1,5 @@
 ﻿//using StudySchedule.UI.Forms.Agenda;
+using StudySchedule.UI.Forms.Cliente;
 using StudySchedule.UI.Forms.Especialidade;
 using StudySchedule.UI.Forms.Profissiional;
 using System;
@@ -109,7 +110,8 @@ namespace StudySchedule.UI.Forms
 
         private void btn_gerenciar_cliente_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Em desenvolvimento!");
+            FormCliente formCliente = new FormCliente();
+            formCliente.Show();
         }
 
         private void btn_close_MouseHover(object sender, EventArgs e)

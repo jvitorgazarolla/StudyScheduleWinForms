@@ -64,20 +64,13 @@ namespace StudySchedule.UI.Forms.Profissiional
 
             int? profissionalId = cb_profissional.SelectedValue != null
                 ? Convert.ToInt32(cb_profissional.SelectedValue)
-                : (int?) null;
+                : (int?)null;
 
-            DateTime data = dtp_data.Value.Date;
-            TimeSpan horaInicio = new TimeSpan(
-                 dtp_hora_inicio.Value.Hour,
-                 dtp_hora_inicio.Value.Minute,
-                 0
-            );
+            var data = dtp_data.Value.Date;
 
-            TimeSpan horaFim = new TimeSpan(
-             dtp_hora_fim.Value.Hour,
-             dtp_hora_fim.Value.Minute,
-             0
-            );
+            var horaInicio = dtp_hora_inicio.Value.TimeOfDay;
+            var horaFim = dtp_hora_fim.Value.TimeOfDay;
+            var duracao = dtp_duracao.Value.TimeOfDay;
 
             if (profissionalId == 0 || profissionalId == null)
             {
@@ -87,17 +80,20 @@ namespace StudySchedule.UI.Forms.Profissiional
 
             if (_edicao)
             {
-                var resultEdit = _jornadaService.Atualizar(_jornadaId, profissionalId, data, horaInicio, horaFim);
+                var resultEdit = _jornadaService.Atualizar(_jornadaId, profissionalId, data, horaInicio, horaFim, duracao);
                 if (!resultEdit.ok)
                 {
                     MessageBox.Show(resultEdit.msg);
+
                 }
+
                 MessageBox.Show(resultEdit.msg);
                 btn_buscar_Click(btn_buscar, EventArgs.Empty);
             }
             else
             {
-                var resultInsert = _jornadaService.Inserir(profissionalId.Value, data, horaInicio, horaFim);
+                var resultInsert = _jornadaService.Inserir(profissionalId.Value, data, horaInicio, horaFim, duracao);
+
                 MessageBox.Show(resultInsert.msg);
 
                 btn_buscar_Click(btn_buscar, EventArgs.Empty);
@@ -175,8 +171,9 @@ namespace StudySchedule.UI.Forms.Profissiional
                     dtp_data.Value = selecionado.Data;
                     dtp_hora_inicio.Value = DateTime.Today.Add(selecionado.HoraInicio);
                     dtp_hora_fim.Value = DateTime.Today.Add(selecionado.HoraFim);
+                    dtp_duracao.Value = DateTime.Today.Add(selecionado.Duracao);
                 }
-                if(colunaSelecionada == "btnExcluir")
+                if (colunaSelecionada == "btnExcluir")
                 {
                     var confirm = MessageBox.Show("Tem certeza que deseja excluir essa jornada?",
                         "Sim",
@@ -184,7 +181,8 @@ namespace StudySchedule.UI.Forms.Profissiional
                         MessageBoxIcon.Warning
                         );
 
-                    if (confirm == DialogResult.Yes) { 
+                    if (confirm == DialogResult.Yes)
+                    {
                         var resultExcluir = _jornadaService.Excluir(selecionado.Id);
                         if (!resultExcluir.ok)
                         {
@@ -194,7 +192,7 @@ namespace StudySchedule.UI.Forms.Profissiional
                         btn_buscar_Click(btn_buscar, EventArgs.Empty);
 
 
-                        
+
                     }
                 }
             }
@@ -224,10 +222,20 @@ namespace StudySchedule.UI.Forms.Profissiional
             dtp_hora_fim.CustomFormat = "HH:mm";
             dtp_hora_fim.ShowUpDown = true;
 
+            dtp_duracao.Format = DateTimePickerFormat.Custom;
+            dtp_duracao.CustomFormat = "HH:mm";
+            dtp_duracao.ShowUpDown = true;
+
             pb_loading.Style = ProgressBarStyle.Marquee;
             pb_loading.MarqueeAnimationSpeed = 1;
             pb_loading.BringToFront();
         }
 
+        private void dtp_duracao_ValueChanged(object sender, EventArgs e)
+        {
+            dtp_duracao.Format = DateTimePickerFormat.Custom;
+            dtp_duracao.CustomFormat = "HH:mm";
+            dtp_duracao.ShowUpDown = true;
+        }
     }
 }

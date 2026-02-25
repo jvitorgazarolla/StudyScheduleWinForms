@@ -12,5 +12,6 @@ namespace StudySchedule.Application.DTOs.Agenda.Jornada
         public DateTime Data { get; set; }
         public TimeSpan HoraInicio { get; set; }
         public TimeSpan HoraFim { get; set; }
+        public TimeSpan Duracao { get; set; }
     }
 }
