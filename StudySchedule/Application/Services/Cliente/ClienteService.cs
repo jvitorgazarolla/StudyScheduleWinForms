@@ -1,5 +1,6 @@
 ﻿
 
+using StudySchedule.Application.DTOs.Cliente;
 using StudySchedule.Domain.Entities.Cliente;
 using StudySchedule.Infrastructure.Repositories.Cliente;
 using System;
@@ -22,7 +23,6 @@ namespace StudySchedule.Application.Services.Cliente
         {
             try
             {
-                //var id = _repo.Inserir(nome, data_nascimento,telefone, sexo, observacao);
                 var cliente = new ClienteDomain(nome, data_nascimento, telefone, observacao, sexo);
 
                 var id = _repo.Inserir(cliente);
@@ -32,6 +32,11 @@ namespace StudySchedule.Application.Services.Cliente
             catch (Exception ex) {
                 return (false, ex.Message, null);
             }
+        }
+
+        public List<ClienteDto>Buscar(string nome)
+        {
+             return _repo.Buscar(nome);
         }
 
     }

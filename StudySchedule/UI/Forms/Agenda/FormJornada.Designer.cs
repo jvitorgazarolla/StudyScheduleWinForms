@@ -75,7 +75,7 @@
             // 
             lbl_titulo.AutoSize = true;
             lbl_titulo.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbl_titulo.Location = new Point(343, 20);
+            lbl_titulo.Location = new Point(353, 20);
             lbl_titulo.Name = "lbl_titulo";
             lbl_titulo.Size = new Size(225, 32);
             lbl_titulo.TabIndex = 15;
@@ -268,7 +268,7 @@
             // panel2
             // 
             panel2.BackColor = Color.Blue;
-            panel2.Location = new Point(343, 55);
+            panel2.Location = new Point(353, 55);
             panel2.Name = "panel2";
             panel2.Size = new Size(1216, 3);
             panel2.TabIndex = 29;

@@ -17,6 +17,7 @@ namespace StudySchedule.Domain.Entities.Cliente
         public ClienteDomain(string nome, DateTime data_nascimento, string telefone, string observacao, string sexo)
         {
             Validar(nome, data_nascimento, telefone);
+
             Nome = nome;
             DataNascimento = data_nascimento;
             Telefone = telefone;
@@ -35,7 +36,6 @@ namespace StudySchedule.Domain.Entities.Cliente
             {
                 throw new Exception("Telefone é obrigatório");
             } 
-
         }
     }
 }

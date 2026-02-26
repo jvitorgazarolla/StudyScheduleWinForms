@@ -43,13 +43,20 @@
             btn_novo = new Button();
             lbl_cadastrar_jornada = new Label();
             lbl_nome = new Label();
+            panel3 = new Panel();
+            txt_busca_cliente = new TextBox();
+            btn_buscar = new Button();
+            label4 = new Label();
+            lbl_titulo = new Label();
+            flp_clientes = new FlowLayoutPanel();
             pnl_nova_jornada.SuspendLayout();
+            panel3.SuspendLayout();
             SuspendLayout();
             // 
             // pnl_nova_jornada
             // 
             pnl_nova_jornada.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            pnl_nova_jornada.BackColor = SystemColors.Control;
+            pnl_nova_jornada.BackColor = Color.White;
             pnl_nova_jornada.Controls.Add(lbl_observacao);
             pnl_nova_jornada.Controls.Add(txt_observacao);
             pnl_nova_jornada.Controls.Add(lbl_data_nascimento);
@@ -213,12 +220,81 @@
             lbl_nome.TabIndex = 9;
             lbl_nome.Text = "Nome:";
             // 
+            // panel3
+            // 
+            panel3.BackColor = Color.White;
+            panel3.Controls.Add(txt_busca_cliente);
+            panel3.Controls.Add(btn_buscar);
+            panel3.Controls.Add(label4);
+            panel3.Location = new Point(374, 47);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(830, 90);
+            panel3.TabIndex = 31;
+            // 
+            // txt_busca_cliente
+            // 
+            txt_busca_cliente.Font = new Font("Segoe UI", 11F);
+            txt_busca_cliente.Location = new Point(19, 32);
+            txt_busca_cliente.Name = "txt_busca_cliente";
+            txt_busca_cliente.Size = new Size(681, 27);
+            txt_busca_cliente.TabIndex = 31;
+            // 
+            // btn_buscar
+            // 
+            btn_buscar.BackColor = SystemColors.ControlDark;
+            btn_buscar.FlatAppearance.BorderSize = 0;
+            btn_buscar.FlatStyle = FlatStyle.Flat;
+            btn_buscar.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btn_buscar.ForeColor = SystemColors.ControlLightLight;
+            btn_buscar.Location = new Point(706, 32);
+            btn_buscar.Name = "btn_buscar";
+            btn_buscar.Size = new Size(121, 27);
+            btn_buscar.TabIndex = 30;
+            btn_buscar.Text = "Buscar";
+            btn_buscar.UseVisualStyleBackColor = false;
+            btn_buscar.Click += btn_buscar_Click;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            label4.ForeColor = SystemColors.ControlDarkDark;
+            label4.Location = new Point(19, 10);
+            label4.Name = "label4";
+            label4.Size = new Size(131, 19);
+            label4.TabIndex = 10;
+            label4.Text = "Filtrar por Cliente:";
+            // 
+            // lbl_titulo
+            // 
+            lbl_titulo.AutoSize = true;
+            lbl_titulo.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbl_titulo.Location = new Point(374, 12);
+            lbl_titulo.Name = "lbl_titulo";
+            lbl_titulo.Size = new Size(212, 32);
+            lbl_titulo.TabIndex = 32;
+            lbl_titulo.Text = "Busca de Clientes";
+            lbl_titulo.UseMnemonic = false;
+            // 
+            // flp_clientes
+            // 
+            flp_clientes.AutoScroll = true;
+            flp_clientes.BackColor = SystemColors.ButtonFace;
+            flp_clientes.ForeColor = SystemColors.ControlDark;
+            flp_clientes.Location = new Point(374, 143);
+            flp_clientes.Name = "flp_clientes";
+            flp_clientes.Size = new Size(827, 500);
+            flp_clientes.TabIndex = 33;
+            // 
             // FormCliente
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.ControlLight;
+            BackColor = SystemColors.ButtonFace;
             ClientSize = new Size(1205, 700);
+            Controls.Add(flp_clientes);
+            Controls.Add(lbl_titulo);
+            Controls.Add(panel3);
             Controls.Add(pnl_nova_jornada);
             Name = "FormCliente";
             StartPosition = FormStartPosition.CenterScreen;
@@ -226,7 +302,10 @@
             Load += FormCliente_Load;
             pnl_nova_jornada.ResumeLayout(false);
             pnl_nova_jornada.PerformLayout();
+            panel3.ResumeLayout(false);
+            panel3.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -246,5 +325,11 @@
         private TextBox txt_observacao;
         private Label lbl_data_nascimento;
         private DateTimePicker dtp_data_nascimento;
+        private Panel panel3;
+        private TextBox txt_busca_cliente;
+        private Button btn_buscar;
+        private Label label4;
+        private Label lbl_titulo;
+        private FlowLayoutPanel flp_clientes;
     }
 }

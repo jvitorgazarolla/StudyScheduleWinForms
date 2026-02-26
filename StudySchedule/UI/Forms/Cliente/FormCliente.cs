@@ -47,13 +47,37 @@ namespace StudySchedule.UI.Forms.Cliente
             var telefone = txt_tel.Text;
             var observacao = txt_observacao.Text;
             var inserir = _service.Inserir(nome, data_nacimento, telefone, sexo, observacao);
-    
+
 
             if (!inserir.ok)
             {
                 MessageBox.Show(inserir.msg);
+                return;
             }
             MessageBox.Show(inserir.msg);
+        }
+
+        private void btn_buscar_Click(object sender, EventArgs e)
+        {
+            var nome = txt_busca_cliente.Text;
+
+            var results = _service.Buscar(nome);
+
+
+
+            flp_clientes.Controls.Clear();
+            foreach(var result in results)
+            {
+                var card = new CardCliente();
+
+                card.setNome(result.Nome);
+                card.Width = 246;
+                card.Height = 140;
+                card.Margin = new Padding(10);
+
+
+                flp_clientes.Controls.Add(card);
+            }
 
         }
     }
