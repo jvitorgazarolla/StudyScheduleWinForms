@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             pnl_nova_jornada = new Panel();
+            lbl_email = new Label();
+            chk_status = new CheckBox();
+            btn_excluir = new Button();
             lbl_observacao = new Label();
             txt_observacao = new TextBox();
             lbl_data_nascimento = new Label();
@@ -49,6 +52,7 @@
             label4 = new Label();
             lbl_titulo = new Label();
             flp_clientes = new FlowLayoutPanel();
+            txt_email = new TextBox();
             pnl_nova_jornada.SuspendLayout();
             panel3.SuspendLayout();
             SuspendLayout();
@@ -57,6 +61,10 @@
             // 
             pnl_nova_jornada.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             pnl_nova_jornada.BackColor = Color.White;
+            pnl_nova_jornada.Controls.Add(txt_email);
+            pnl_nova_jornada.Controls.Add(lbl_email);
+            pnl_nova_jornada.Controls.Add(chk_status);
+            pnl_nova_jornada.Controls.Add(btn_excluir);
             pnl_nova_jornada.Controls.Add(lbl_observacao);
             pnl_nova_jornada.Controls.Add(txt_observacao);
             pnl_nova_jornada.Controls.Add(lbl_data_nascimento);
@@ -76,12 +84,48 @@
             pnl_nova_jornada.Size = new Size(347, 749);
             pnl_nova_jornada.TabIndex = 29;
             // 
+            // lbl_email
+            // 
+            lbl_email.AutoSize = true;
+            lbl_email.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbl_email.ForeColor = SystemColors.ControlDarkDark;
+            lbl_email.Location = new Point(26, 174);
+            lbl_email.Name = "lbl_email";
+            lbl_email.Size = new Size(53, 21);
+            lbl_email.TabIndex = 43;
+            lbl_email.Text = "Email";
+            // 
+            // chk_status
+            // 
+            chk_status.AutoSize = true;
+            chk_status.Location = new Point(276, 116);
+            chk_status.Name = "chk_status";
+            chk_status.Size = new Size(54, 19);
+            chk_status.TabIndex = 42;
+            chk_status.Text = "Ativo";
+            chk_status.UseVisualStyleBackColor = true;
+            // 
+            // btn_excluir
+            // 
+            btn_excluir.BackColor = Color.Red;
+            btn_excluir.FlatAppearance.BorderSize = 0;
+            btn_excluir.FlatStyle = FlatStyle.Flat;
+            btn_excluir.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btn_excluir.ForeColor = SystemColors.ControlLightLight;
+            btn_excluir.Location = new Point(26, 530);
+            btn_excluir.Name = "btn_excluir";
+            btn_excluir.Size = new Size(304, 27);
+            btn_excluir.TabIndex = 41;
+            btn_excluir.Text = "Excluir";
+            btn_excluir.UseVisualStyleBackColor = false;
+            btn_excluir.Visible = false;
+            // 
             // lbl_observacao
             // 
             lbl_observacao.AutoSize = true;
             lbl_observacao.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lbl_observacao.ForeColor = SystemColors.ControlDarkDark;
-            lbl_observacao.Location = new Point(26, 323);
+            lbl_observacao.Location = new Point(30, 382);
             lbl_observacao.Name = "lbl_observacao";
             lbl_observacao.Size = new Size(104, 21);
             lbl_observacao.TabIndex = 40;
@@ -89,7 +133,7 @@
             // 
             // txt_observacao
             // 
-            txt_observacao.Location = new Point(26, 347);
+            txt_observacao.Location = new Point(30, 406);
             txt_observacao.Multiline = true;
             txt_observacao.Name = "txt_observacao";
             txt_observacao.PlaceholderText = "Ex: Cliente possui alguma alergia";
@@ -101,7 +145,7 @@
             lbl_data_nascimento.AutoSize = true;
             lbl_data_nascimento.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lbl_data_nascimento.ForeColor = SystemColors.ControlDarkDark;
-            lbl_data_nascimento.Location = new Point(26, 224);
+            lbl_data_nascimento.Location = new Point(26, 278);
             lbl_data_nascimento.Name = "lbl_data_nascimento";
             lbl_data_nascimento.Size = new Size(146, 21);
             lbl_data_nascimento.TabIndex = 37;
@@ -110,7 +154,7 @@
             // dtp_data_nascimento
             // 
             dtp_data_nascimento.Font = new Font("Segoe UI", 10F);
-            dtp_data_nascimento.Location = new Point(30, 247);
+            dtp_data_nascimento.Location = new Point(30, 302);
             dtp_data_nascimento.Name = "dtp_data_nascimento";
             dtp_data_nascimento.Size = new Size(300, 25);
             dtp_data_nascimento.TabIndex = 36;
@@ -122,7 +166,7 @@
             btn_cadastrar.FlatStyle = FlatStyle.Flat;
             btn_cadastrar.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btn_cadastrar.ForeColor = SystemColors.ControlLightLight;
-            btn_cadastrar.Location = new Point(26, 433);
+            btn_cadastrar.Location = new Point(26, 492);
             btn_cadastrar.Name = "btn_cadastrar";
             btn_cadastrar.Size = new Size(304, 27);
             btn_cadastrar.TabIndex = 35;
@@ -135,7 +179,7 @@
             lbl_sexo.AutoSize = true;
             lbl_sexo.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lbl_sexo.ForeColor = SystemColors.ControlDarkDark;
-            lbl_sexo.Location = new Point(26, 273);
+            lbl_sexo.Location = new Point(26, 330);
             lbl_sexo.Name = "lbl_sexo";
             lbl_sexo.Size = new Size(51, 21);
             lbl_sexo.TabIndex = 34;
@@ -145,7 +189,7 @@
             // 
             cb_sexo.Font = new Font("Segoe UI", 10F);
             cb_sexo.FormattingEnabled = true;
-            cb_sexo.Location = new Point(30, 297);
+            cb_sexo.Location = new Point(30, 354);
             cb_sexo.Name = "cb_sexo";
             cb_sexo.Size = new Size(300, 25);
             cb_sexo.TabIndex = 33;
@@ -153,7 +197,7 @@
             // txt_tel
             // 
             txt_tel.Font = new Font("Segoe UI", 10F);
-            txt_tel.Location = new Point(30, 196);
+            txt_tel.Location = new Point(30, 250);
             txt_tel.Name = "txt_tel";
             txt_tel.Size = new Size(300, 25);
             txt_tel.TabIndex = 32;
@@ -171,7 +215,7 @@
             lbl_telefone.AutoSize = true;
             lbl_telefone.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lbl_telefone.ForeColor = SystemColors.ControlDarkDark;
-            lbl_telefone.Location = new Point(26, 172);
+            lbl_telefone.Location = new Point(26, 226);
             lbl_telefone.Name = "lbl_telefone";
             lbl_telefone.Size = new Size(80, 21);
             lbl_telefone.TabIndex = 30;
@@ -286,6 +330,14 @@
             flp_clientes.Size = new Size(827, 500);
             flp_clientes.TabIndex = 33;
             // 
+            // txt_email
+            // 
+            txt_email.Font = new Font("Segoe UI", 10F);
+            txt_email.Location = new Point(30, 198);
+            txt_email.Name = "txt_email";
+            txt_email.Size = new Size(300, 25);
+            txt_email.TabIndex = 44;
+            // 
             // FormCliente
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -331,5 +383,10 @@
         private Label label4;
         private Label lbl_titulo;
         private FlowLayoutPanel flp_clientes;
+        private Button btn_excluir;
+        private CheckBox chk_status;
+        private TextBox textBox1;
+        private Label lbl_email;
+        private TextBox txt_email;
     }
 }

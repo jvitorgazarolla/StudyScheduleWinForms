@@ -19,11 +19,11 @@ namespace StudySchedule.Application.Services.Cliente
             _repo = repo;
         }
 
-        public (bool ok, string msg, int? id)Inserir(string nome, DateTime data_nascimento, string telefone, string observacao, string sexo)
+        public (bool ok, string msg, int? id)Inserir(string nome, string email, DateTime data_nascimento, string telefone, string observacao, string sexo)
         {
             try
             {
-                var cliente = new ClienteDomain(nome, data_nascimento, telefone, observacao, sexo);
+                var cliente = new ClienteDomain(nome, email, data_nascimento, telefone, observacao, sexo);
 
                 var id = _repo.Inserir(cliente);
                 return (true, "Cliente inserido com sucesso!", null);

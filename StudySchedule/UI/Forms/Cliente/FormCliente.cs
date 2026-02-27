@@ -1,5 +1,6 @@
 ﻿using StudySchedule.Application.DTOs.Cliente;
 using StudySchedule.Application.Services.Cliente;
+using StudySchedule.Domain.Entities.Cliente;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -41,12 +42,14 @@ namespace StudySchedule.UI.Forms.Cliente
         private void btn_cadastrar_Click(object sender, EventArgs e)
         {
             //var data_nascimento = dtp_data_nascimento.Value.ToString("yyyy,M,d");
-            var data_nacimento = dtp_data_nascimento.Value.Date;
             var nome = txt_nome.Text;
+            var email = txt_email.Text;
+      
+            var data_nacimento = dtp_data_nascimento.Value.Date;
             var sexo = cb_sexo.SelectedValue.ToString();
             var telefone = txt_tel.Text;
             var observacao = txt_observacao.Text;
-            var inserir = _service.Inserir(nome, data_nacimento, telefone, sexo, observacao);
+            var inserir = _service.Inserir(nome, email, data_nacimento, telefone, sexo, observacao);
 
 
             if (!inserir.ok)
@@ -70,15 +73,34 @@ namespace StudySchedule.UI.Forms.Cliente
             {
                 var card = new CardCliente();
 
-                card.setNome(result.Nome);
+
+                card.setCliente(result);
+
                 card.Width = 246;
                 card.Height = 140;
                 card.Margin = new Padding(10);
-
-
+                card.EditarClick += Card_EditarClick;
                 flp_clientes.Controls.Add(card);
             }
 
+        }
+
+        private void Card_EditarClick(object? sender, EventArgs e)
+        {
+            btn_excluir.Visible = true;
+            btn_cadastrar.Text = "Atualizar";
+            pnl_nova_jornada.BackColor = Color.WhiteSmoke;
+
+            var card = (CardCliente)sender!;
+
+            var cliente = card.Cliente;
+
+            txt_nome.Text = cliente.Nome;
+            txt_email.Text = cliente.Email;
+            txt_tel.Text = cliente.Telefone;
+            dtp_data_nascimento.Text = cliente.DataNascimento.ToString();
+            txt_observacao.Text = cliente.Observacao;
+            cb_sexo.Text = cliente.Sexo;    
         }
     }
 }

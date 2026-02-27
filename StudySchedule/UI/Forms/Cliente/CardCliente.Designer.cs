@@ -31,7 +31,7 @@
             lbl_nome = new Label();
             pnl_cliente = new Panel();
             btn_editar = new Button();
-            label2 = new Label();
+            lbl_email = new Label();
             lbl_telefone = new Label();
             pnl_cliente.SuspendLayout();
             SuspendLayout();
@@ -52,13 +52,14 @@
             // 
             pnl_cliente.BackColor = SystemColors.HighlightText;
             pnl_cliente.Controls.Add(btn_editar);
-            pnl_cliente.Controls.Add(label2);
+            pnl_cliente.Controls.Add(lbl_email);
             pnl_cliente.Controls.Add(lbl_telefone);
             pnl_cliente.Controls.Add(lbl_nome);
             pnl_cliente.Location = new Point(3, 3);
             pnl_cliente.Name = "pnl_cliente";
-            pnl_cliente.Size = new Size(300, 140);
+            pnl_cliente.Size = new Size(296, 140);
             pnl_cliente.TabIndex = 3;
+            pnl_cliente.Paint += pnl_cliente_Paint;
             // 
             // btn_editar
             // 
@@ -72,17 +73,18 @@
             btn_editar.TabIndex = 4;
             btn_editar.Text = "EDITAR";
             btn_editar.UseVisualStyleBackColor = true;
+            btn_editar.Click += btn_editar_Click;
             // 
-            // label2
+            // lbl_email
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 12F);
-            label2.ForeColor = SystemColors.ControlDark;
-            label2.Location = new Point(14, 51);
-            label2.Name = "label2";
-            label2.Size = new Size(52, 21);
-            label2.TabIndex = 3;
-            label2.Text = "label2";
+            lbl_email.AutoSize = true;
+            lbl_email.Font = new Font("Segoe UI", 12F);
+            lbl_email.ForeColor = SystemColors.ControlDark;
+            lbl_email.Location = new Point(14, 51);
+            lbl_email.Name = "lbl_email";
+            lbl_email.Size = new Size(48, 21);
+            lbl_email.TabIndex = 3;
+            lbl_email.Text = "Email";
             // 
             // lbl_telefone
             // 
@@ -113,6 +115,6 @@
         private Panel pnl_cliente;
         private Label lbl_telefone;
         private Button btn_editar;
-        private Label label2;
+        private Label lbl_email;
     }
 }

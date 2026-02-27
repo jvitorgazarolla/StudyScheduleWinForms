@@ -15,6 +15,7 @@ namespace StudySchedule.Infrastructure.Repositories.Cliente
             return Db.Inserir<int>(
                 "cadastro_cliente_inserir",
                 SqlParam.In("@nome", SqlDbType.NVarChar, cliente.Nome),
+                SqlParam.In("email", SqlDbType.NVarChar, cliente.Email),
                 SqlParam.In("@data_nascimento", SqlDbType.Date, cliente.DataNascimento),
                 SqlParam.In("@telefone", SqlDbType.VarChar, cliente.Telefone),
                 SqlParam.In("sexo", SqlDbType.Char, cliente.Sexo),
@@ -27,8 +28,13 @@ namespace StudySchedule.Infrastructure.Repositories.Cliente
                  "cadastro_cliente_buscar",
                  reader => new ClienteDto
                  {
+                     Id = reader.GetInt32(reader.GetOrdinal("id")),
                      Nome = reader.GetString(reader.GetOrdinal("nome")),
-                     DataNascimento = reader.GetDateTime(reader.GetOrdinal("data_nascimento"))
+                     Email = reader.GetString(reader.GetOrdinal("email")),
+                     DataNascimento = reader.GetDateTime(reader.GetOrdinal("data_nascimento")),
+                     Telefone = reader.GetString(reader.GetOrdinal("telefone")),
+                     Sexo = reader.GetString(reader.GetOrdinal("sexo")),
+                     Observacao = reader.GetString(reader.GetOrdinal("observacao"))
                  },
                  SqlParam.In("@nome", SqlDbType.NVarChar, nome)
             );

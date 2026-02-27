@@ -7,6 +7,8 @@ namespace StudySchedule.Domain.Entities.Cliente
     public class ClienteDomain
     {
         public string Nome { get; set; }
+
+        public string Email {  get; set; }
         public DateTime DataNascimento { get; set; }
         public string Telefone { get; set; }
 
@@ -14,11 +16,12 @@ namespace StudySchedule.Domain.Entities.Cliente
 
         public string Sexo { get; set; }
 
-        public ClienteDomain(string nome, DateTime data_nascimento, string telefone, string observacao, string sexo)
+        public ClienteDomain(string nome, string email, DateTime data_nascimento, string telefone, string observacao, string sexo)
         {
             Validar(nome, data_nascimento, telefone);
 
             Nome = nome;
+            Email = email;
             DataNascimento = data_nascimento;
             Telefone = telefone;
             Observacao = observacao;
