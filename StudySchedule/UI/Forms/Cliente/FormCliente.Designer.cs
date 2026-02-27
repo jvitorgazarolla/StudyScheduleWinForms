@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             pnl_nova_jornada = new Panel();
+            txt_email = new TextBox();
             lbl_email = new Label();
             chk_status = new CheckBox();
             btn_excluir = new Button();
@@ -52,7 +53,6 @@
             label4 = new Label();
             lbl_titulo = new Label();
             flp_clientes = new FlowLayoutPanel();
-            txt_email = new TextBox();
             pnl_nova_jornada.SuspendLayout();
             panel3.SuspendLayout();
             SuspendLayout();
@@ -83,6 +83,14 @@
             pnl_nova_jornada.Name = "pnl_nova_jornada";
             pnl_nova_jornada.Size = new Size(347, 749);
             pnl_nova_jornada.TabIndex = 29;
+            // 
+            // txt_email
+            // 
+            txt_email.Font = new Font("Segoe UI", 10F);
+            txt_email.Location = new Point(30, 198);
+            txt_email.Name = "txt_email";
+            txt_email.Size = new Size(300, 25);
+            txt_email.TabIndex = 44;
             // 
             // lbl_email
             // 
@@ -249,9 +257,9 @@
             lbl_cadastrar_jornada.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
             lbl_cadastrar_jornada.Location = new Point(26, 79);
             lbl_cadastrar_jornada.Name = "lbl_cadastrar_jornada";
-            lbl_cadastrar_jornada.Size = new Size(174, 25);
+            lbl_cadastrar_jornada.Size = new Size(163, 25);
             lbl_cadastrar_jornada.TabIndex = 10;
-            lbl_cadastrar_jornada.Text = "Cadastrar Jornada";
+            lbl_cadastrar_jornada.Text = "Cadastrar Cliente";
             // 
             // lbl_nome
             // 
@@ -329,14 +337,6 @@
             flp_clientes.Name = "flp_clientes";
             flp_clientes.Size = new Size(827, 500);
             flp_clientes.TabIndex = 33;
-            // 
-            // txt_email
-            // 
-            txt_email.Font = new Font("Segoe UI", 10F);
-            txt_email.Location = new Point(30, 198);
-            txt_email.Name = "txt_email";
-            txt_email.Size = new Size(300, 25);
-            txt_email.TabIndex = 44;
             // 
             // FormCliente
             // 
