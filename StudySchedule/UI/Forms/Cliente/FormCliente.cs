@@ -15,6 +15,7 @@ namespace StudySchedule.UI.Forms.Cliente
     public partial class FormCliente : Form
     {
         private int _clienteId;
+        private bool isEdicao => _clienteId > 0;
         private readonly ClienteService _service;
         public FormCliente()
         {
@@ -65,11 +66,12 @@ namespace StudySchedule.UI.Forms.Cliente
             var sexo = cb_sexo.SelectedValue.ToString();
             var telefone = txt_tel.Text;
             var observacao = txt_observacao.Text;
-            var inserir = _service.Inserir(nome, email, data_nacimento, telefone, sexo, observacao);
 
-            if (_clienteId > 0)
+
+            if (isEdicao)
+
             {
-                 var atualizar = _service.Atualizar(_clienteId, nome, email, data_nacimento, telefone, observacao,sexo);
+                var atualizar = _service.Atualizar(_clienteId, nome, email, data_nacimento, telefone, observacao, sexo);
 
                 if (!atualizar.ok)
                 {
@@ -84,6 +86,7 @@ namespace StudySchedule.UI.Forms.Cliente
             }
             else
             {
+                var inserir = _service.Inserir(nome, email, data_nacimento, telefone, sexo, observacao);
                 if (!inserir.ok)
                 {
                     MessageBox.Show(inserir.msg);
@@ -143,6 +146,7 @@ namespace StudySchedule.UI.Forms.Cliente
 
         private void limparCampos()
         {
+            _clienteId = 0;
             txt_nome.Text = null;
             txt_email.Text = null;
             txt_observacao.Text = null;
@@ -150,9 +154,32 @@ namespace StudySchedule.UI.Forms.Cliente
             dtp_data_nascimento.Text = null;
             cb_sexo.Text = null;
             chk_status.Checked = true;
-
-
         }
 
+        private void btn_excluir_Click(object sender, EventArgs e)
+        {
+            var confrm = MessageBox.Show("Deseja Excluir esse paciente?", 
+                            "Sim!",
+                             MessageBoxButtons.YesNo, 
+                             MessageBoxIcon.Warning
+            );
+
+            if(confrm == DialogResult.Yes)
+            {
+                var resultExcluir = _service.Excluir(_clienteId);
+                if (!resultExcluir.ok)
+                {
+                    MessageBox.Show(resultExcluir.msg);
+                }
+                else
+                {
+                    MessageBox.Show(resultExcluir.msg);
+                    btn_buscar_Click(btn_buscar, EventArgs.Empty);
+
+                }
+            }
+
+              
+        }
     }
 }

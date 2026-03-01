@@ -54,5 +54,13 @@ namespace StudySchedule.Infrastructure.Repositories.Cliente
             );
             
         }
+
+        public bool Excluir(ClienteDomain cliente)
+        {
+            return Db.Excluir(
+                "cadastro_cliente_excluir",
+                SqlParam.In("id", SqlDbType.Int, cliente.Id)
+            );
+        }
     }
 }

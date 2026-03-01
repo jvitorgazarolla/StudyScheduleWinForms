@@ -201,6 +201,7 @@
             btn_excluir.Text = "Excluir";
             btn_excluir.UseVisualStyleBackColor = false;
             btn_excluir.Visible = false;
+            btn_excluir.Click += btn_excluir_Click;
             // 
             // lbl_observacao
             // 

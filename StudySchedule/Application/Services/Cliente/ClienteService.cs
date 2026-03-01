@@ -18,7 +18,10 @@ namespace StudySchedule.Application.Services.Cliente
             var repo = new ClienteRepository();
             _repo = repo;
         }
-
+        public List<ClienteDto> Buscar(string nome)
+        {
+            return _repo.Buscar(nome);
+        }
         public (bool ok, string msg, int? id)Inserir(string nome, string email, DateTime data_nascimento, string telefone, string observacao, string sexo)
         {
             try
@@ -46,10 +49,20 @@ namespace StudySchedule.Application.Services.Cliente
                 return (false, ex.Message, null);
             }
         }
-        public List<ClienteDto>Buscar(string nome)
+        public (bool ok, string msg) Excluir(int id)
         {
-             return _repo.Buscar(nome);
+            try
+            {
+                var cliente = new ClienteDomain(id);
+                _repo.Excluir(cliente);
+                return (true, "Cliente excluido com sucesso!");
+
+            }
+            catch (Exception ex) {
+                return (false, ex.Message);
+            }
         }
+
 
     }
 }
