@@ -18,7 +18,7 @@ namespace StudySchedule.Application.Services.Agenda
         {
             return _repo.Buscar(nomeProfissional, data, horaInicio, horaFim);
         }
-        public (bool ok, string msg, int? id)Inserir(int  profissionalId,  DateTime data, TimeSpan horaInicio, TimeSpan horaFim, TimeSpan duracao)
+        public (bool ok, string msg, int? id)Inserir(int profissionalId,  DateTime data, TimeSpan horaInicio, TimeSpan horaFim, TimeSpan duracao)
         {
             try
             {

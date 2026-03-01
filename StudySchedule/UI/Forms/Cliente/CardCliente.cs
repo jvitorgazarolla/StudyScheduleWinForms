@@ -26,6 +26,7 @@ namespace StudySchedule.UI.Forms.Cliente
 
         public void setCliente(ClienteDto cliente)
         {
+    
             Cliente = cliente;
             lbl_nome.Text = cliente.Nome;
             lbl_telefone.Text = cliente.Telefone;

@@ -1,6 +1,7 @@
 ﻿using StudySchedule.Application.DTOs.Cliente;
 using StudySchedule.Application.Services.Cliente;
 using StudySchedule.Domain.Entities.Cliente;
+using StudySchedule.UI.Extensions;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,19 +14,34 @@ namespace StudySchedule.UI.Forms.Cliente
 {
     public partial class FormCliente : Form
     {
+        private int _clienteId;
         private readonly ClienteService _service;
         public FormCliente()
         {
             var service = new ClienteService();
             _service = service;
 
+
             InitializeComponent();
         }
         private void FormCliente_Load(object sender, EventArgs e)
         {
             carregaComboBoxSexo();
+            redimensionarBordas();
         }
+        private void redimensionarBordas()
+        {
+            //Panel
+            PanelExtensions.ApplyRoundedCorners(pnl_filtro, 7);
+            PanelExtensions.ApplyRoundedCorners(pnl_cadastro_cliente, 7);
 
+            //Button
+            ButtonExtensions.ApplyRoundedCorners(btn_buscar, 7);
+            ButtonExtensions.ApplyRoundedCorners(btn_cadastrar, 7);
+            ButtonExtensions.ApplyRoundedCorners(btn_novo, 7);
+            ButtonExtensions.ApplyRoundedCorners(btn_cadastrar, 7);
+
+        }
         private void carregaComboBoxSexo()
         {
             var lista = new List<SexoDto>()
@@ -41,23 +57,40 @@ namespace StudySchedule.UI.Forms.Cliente
 
         private void btn_cadastrar_Click(object sender, EventArgs e)
         {
+
             //var data_nascimento = dtp_data_nascimento.Value.ToString("yyyy,M,d");
             var nome = txt_nome.Text;
             var email = txt_email.Text;
-      
             var data_nacimento = dtp_data_nascimento.Value.Date;
             var sexo = cb_sexo.SelectedValue.ToString();
             var telefone = txt_tel.Text;
             var observacao = txt_observacao.Text;
             var inserir = _service.Inserir(nome, email, data_nacimento, telefone, sexo, observacao);
 
-
-            if (!inserir.ok)
+            if (_clienteId > 0)
             {
-                MessageBox.Show(inserir.msg);
-                return;
+                 var atualizar = _service.Atualizar(_clienteId, nome, email, data_nacimento, telefone, observacao,sexo);
+
+                if (!atualizar.ok)
+                {
+                    MessageBox.Show(atualizar.msg);
+                    return;
+                }
+                else
+                {
+                    MessageBox.Show(atualizar.msg);
+                }
+
             }
-            MessageBox.Show(inserir.msg);
+            else
+            {
+                if (!inserir.ok)
+                {
+                    MessageBox.Show(inserir.msg);
+                    return;
+                }
+                MessageBox.Show(inserir.msg);
+            }
         }
 
         private void btn_buscar_Click(object sender, EventArgs e)
@@ -69,7 +102,7 @@ namespace StudySchedule.UI.Forms.Cliente
 
 
             flp_clientes.Controls.Clear();
-            foreach(var result in results)
+            foreach (var result in results)
             {
                 var card = new CardCliente();
 
@@ -89,18 +122,37 @@ namespace StudySchedule.UI.Forms.Cliente
         {
             btn_excluir.Visible = true;
             btn_cadastrar.Text = "Atualizar";
-            pnl_nova_jornada.BackColor = Color.WhiteSmoke;
+            pnl_cadastro_cliente.BackColor = Color.WhiteSmoke;
 
             var card = (CardCliente)sender!;
 
             var cliente = card.Cliente;
-
+            _clienteId = cliente.Id;
             txt_nome.Text = cliente.Nome;
             txt_email.Text = cliente.Email;
             txt_tel.Text = cliente.Telefone;
             dtp_data_nascimento.Text = cliente.DataNascimento.ToString();
             txt_observacao.Text = cliente.Observacao;
-            cb_sexo.Text = cliente.Sexo;    
+            cb_sexo.Text = cliente.Sexo;
         }
+
+        private void btn_novo_Click(object sender, EventArgs e)
+        {
+            limparCampos();
+        }
+
+        private void limparCampos()
+        {
+            txt_nome.Text = null;
+            txt_email.Text = null;
+            txt_observacao.Text = null;
+            txt_tel.Text = null;
+            dtp_data_nascimento.Text = null;
+            cb_sexo.Text = null;
+            chk_status.Checked = true;
+
+
+        }
+
     }
 }

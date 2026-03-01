@@ -13,7 +13,7 @@ namespace StudySchedule.Application.DTOs.Cliente
         public DateTime DataNascimento { get; set; }
         public string Telefone { get; set; }
 
-        public string Observacao { get; set; }
+        public string? Observacao { get; set; }
 
         public string Sexo { get; set; }
     }

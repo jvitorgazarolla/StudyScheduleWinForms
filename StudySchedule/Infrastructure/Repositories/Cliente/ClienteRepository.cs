@@ -38,6 +38,21 @@ namespace StudySchedule.Infrastructure.Repositories.Cliente
                  },
                  SqlParam.In("@nome", SqlDbType.NVarChar, nome)
             );
-        } 
+        }
+
+        public bool Atualizar(ClienteDomain cliente)
+        {
+            return Db.Atualizar(
+               "cadastro_cliente_atualizar",
+                SqlParam.In("@id", SqlDbType.Int, cliente.Id),
+                SqlParam.In("@nome", SqlDbType.NVarChar, cliente.Nome),
+                SqlParam.In("email", SqlDbType.NVarChar, cliente.Email),
+                SqlParam.In("@data_nascimento", SqlDbType.Date, cliente.DataNascimento),
+                SqlParam.In("@telefone", SqlDbType.VarChar, cliente.Telefone),
+                SqlParam.In("sexo", SqlDbType.Char, cliente.Sexo),
+                SqlParam.In("@observacao", SqlDbType.NVarChar, cliente.Observacao)
+            );
+            
+        }
     }
 }

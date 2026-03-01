@@ -1,6 +1,7 @@
 using Microsoft.Data.SqlClient;
 using StudySchedule.Application.Services.Usuario;
 using StudySchedule.Infrastructure.Data;
+using StudySchedule.UI.Extensions;
 using StudySchedule.UI.Forms;
 using System.Data.Common;
 
@@ -40,12 +41,14 @@ namespace StudySchedule
 
             }
         }
-
+       
         private void LoginForm_Load(object sender, EventArgs e)
         {
             txt_usuario.Text = "admin";
             txt_senha.Text = "admin";
+
         }
+
 
         private void lbl_sub_titulo_Click(object sender, EventArgs e)
         {
