@@ -1,4 +1,5 @@
 ﻿//using StudySchedule.UI.Forms.Agenda;
+using StudySchedule.UI.Forms.Agenda;
 using StudySchedule.UI.Forms.Cliente;
 using StudySchedule.UI.Forms.Especialidade;
 using StudySchedule.UI.Forms.Profissiional;
@@ -121,7 +122,8 @@ namespace StudySchedule.UI.Forms
 
         private void btn_gerenciar_agenda_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Em desenvolvimento");
+            FormAgenda formAgeda = new FormAgenda();
+            formAgeda.Show();   
         }
     }
 }

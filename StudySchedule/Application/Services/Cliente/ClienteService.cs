@@ -63,6 +63,11 @@ namespace StudySchedule.Application.Services.Cliente
             }
         }
 
+        public (bool ok, List<ClienteDto> nomes) AutoComplete(string nome)
+        {
+            return (true, _repo.AutoComplete(nome));
+        }
+
 
     }
 }

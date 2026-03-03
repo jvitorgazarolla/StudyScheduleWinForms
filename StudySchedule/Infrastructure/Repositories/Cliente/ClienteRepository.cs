@@ -62,5 +62,18 @@ namespace StudySchedule.Infrastructure.Repositories.Cliente
                 SqlParam.In("id", SqlDbType.Int, cliente.Id)
             );
         }
+
+        public List<ClienteDto>AutoComplete(string nome)
+        {
+            return Db.Buscar<ClienteDto>(
+                "cadastro_cliente_autocomplete",
+                reader => new ClienteDto
+                {
+                    Id = reader.GetInt32(reader.GetOrdinal("id")),
+                    Nome = reader.GetString(reader.GetOrdinal("nome"))
+                },
+                SqlParam.In("@nome", SqlDbType.NVarChar, nome)                
+            );
+        }
     }
 }
